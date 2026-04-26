@@ -111,10 +111,11 @@
 
 /* posição de cada logo na órbita */
 .item1 { transform: rotate(0deg); }
-.item2 { transform: rotate(72deg); }
-.item3 { transform: rotate(144deg); }
-.item4 { transform: rotate(216deg); }
-.item5 { transform: rotate(288deg); }
+.item2 { transform: rotate(60deg); }
+.item3 { transform: rotate(120deg); }
+.item4 { transform: rotate(180deg); }
+.item5 { transform: rotate(240deg); }
+.item6 { transform: rotate(300deg); }
 
 /* ícones */
 .logo {

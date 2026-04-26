@@ -14,12 +14,16 @@
     <link rel="stylesheet" href="CSS/responsivo.css">
     <link rel="icon" href="assets/Icone.png">
 </head>
+
+<!--Cabeçalho-->
 <header class="menu">
+    <!--Navegação celular-->
     <div class="menu-hamburguer" id="menu-hamburguer">
         <span></span>
         <span></span>
         <span></span>
     </div>
+    <!--Navegção pc-->
     <nav>
         <a href="#home" class="linkHome">
             <span class="nomeNav">Heitor</span>
@@ -40,6 +44,7 @@
                 </li>
             </ul>
         </div>
+        <!--Icones do nav-->
         <span class="icones">
             <a href="https://github.com/Heitor-Souza-Pacheco">
                 <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="">
@@ -53,37 +58,42 @@
         </span>
     </nav>
 </header>
+<!--Menu responsivo em celular-->
 <div class="menu-mobile">
 
-<a href="#home">Home</a>
-<a href="#sobre">Sobre</a>
-<a href="#projetos">Projetos</a>
-<a href="#contato">Contato</a>
-<div class="icones-mobile">
-    <a href="https://github.com/Heitor-Souza-Pacheco">
-        <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png">
-    </a>
+    <a href="#home">Home</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+    <div class="icones-mobile">
+        <a href="https://github.com/Heitor-Souza-Pacheco">
+            <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png">
+        </a>
 
-    <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-        <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png">
-    </a>
+        <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
+            <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png">
+        </a>
 
-    <a href="https://www.instagram.com/_.hei_tor/">
-        <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg">
-    </a>
+        <a href="https://www.instagram.com/_.hei_tor/">
+            <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg">
+        </a>
+    </div>
+
 </div>
 
-</div>
+<!--Começo do código corpo-->
 <body>
     <main>
 
+        <!--Section do começo-->
         <section id="home" data-color="#0000" class="principal">
+            <!--Escrito no título-->
             <div id="tituloPrincipal" class="titulo">
                 <h1 class="meuNome tituloAnima">Olá, eu sou o Heitor</h1>
                 <h2 class="funcao tituloAnima2">Estudante de Informática</h2>
                 <p class="resumo hiden">
-                    Eu estou cursando o segundo ano do ensino médio no Colégio Técnico Cotemig e domino
-                    algumas linguagens de programação como HTML, CSS, JavaScript, Python e C#. Busco sempre melhorar nesse ramo através
+                    Eu estou cursando o segundo ano do ensino médio no Colégio Técnico Cotemig e estagiando como Dev na Arújo. Domino
+                    algumas linguagens de programação como HTML, CSS, JavaScript, Python, C# e Java. Busco sempre melhorar nesse ramo através
                     de novos projetos.
                 </p>
                 <a href="#contato">
@@ -92,6 +102,7 @@
                     </button>
                 </a>
             </div>
+            <!--Foto de perfil-->
             <div class="img hiden2">
                 <div class="orbit-container ">
                     <img src="assets/foto perfil.jpg" class="perfil">
@@ -115,46 +126,56 @@
                         <div class="orbitaItem item5">
                             <img src="assets/cSharp.png" class="logo">
                         </div>
+                        <div class="orbitaItem item6">
+                            <img src="assets/JavaLogo.png" class="logo">
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!--Divisão entre sections-->
         <div id="divSobre" class="divisao animar hiden"><h1>Sobre mim</h1></div>
 
+        <!--Section sobre mim-->
         <section id="sobre" data-color="#0000" class="sobreMim">
+            <!--Foto de perfil-->
             <div class="fotoEu hiden">
                 <img src="assets/foto linkedIn.png" alt="Foto linkedIn">
             </div>
+            <!--Textos-->
             <div class="texto">
 
                 <div class="textoSobre">
-                    <p id="paragrafo1" class="p1 hiden">Como já me conhecem, meu nome é Heitor e sou um estudante apaixonado pela
+                    <p id="paragrafo1" class="p1 hiden">Meu nome é Heitor e sou um estudante apaixonado pela
                         informática e áreas de desenvolvimentos.
                     </p>
                     <p id="paragrafo2" class="p2 hiden2">Atualmente, estou no segundo ano do Ensino Médio Técnico no Colégio Cotemig,
-                        onde pude desenvolver minhas habilidades no desenvolvimento backend e frontend.
+                        onde pude desenvolver minhas habilidades no desenvolvimento backend e frontend. Além disso, sou estágiario em
+                        desenvolvimento na Araújo, onde tenho muito contado com Spring Boot e SQL.
                     </p>
                     <p id="paragrafo3" class="p3 hiden">Estou focado em cursos para sempre aprender mais sobre o desenvolvimento de sites
                         modernos com ótima experiência e também no desenvolvimento de softwares.
                     </p>
                 </div>
 
+                <!--Cards-->
                 <div class="expContainer">
+                    <!--Card 1-->
                     <div class="educacao hiden">
                         <header class="cabecalho edu">
                             <h1>Educação</h1>
                         </header>
                         <p class="educacaoTexto">2025 - 2027 Colégio Cotemig Informática</p>
                     </div>
-
+                    <!--Card 2-->
                     <div class="experiencia tituloAnima2">
                         <header class="cabecalho exp">
                             <h1>Experiência</h1>
                         </header>
-                        <p class="expTexto">2025 - Trabalhos como filmaker e atendimento ao cliente</p>
+                        <p class="expTexto">2026 - Estagio em desenvolvimento backend e SQL na Araújo</p>
                     </div>
-
+                    <!--Card 3-->
                     <div class="conhecimentos hiden2">
                         <header class="cabecalho con">
                             <h1>Conhecimentos</h1>
@@ -165,12 +186,16 @@
             </div>
         </section>
 
+        <!--Section projetos-->
         <section id="projetos" data-color="#0000" class="projetosSection">
+            <!--Título página-->
             <header class="tituloProjetos tituloAnima2">
                 <h1>Projetos</h1>
                 <hr>
             </header>
+            <!--Local dos cards-->
             <div class="projetosContainer">
+                <!--Card 1-->
                 <div class="projeto1 card1 hiden">
                     <div class="imagemProjeto">
                         <img src="assets/projeto1.png" alt="Primeiro projeto">
@@ -200,6 +225,7 @@
                         </div>
                     </div>
                 </div>
+                <!--Card 2-->
                 <div class="projeto1 card2 tituloAnima2">
                     <div class="imagemProjeto">
                         <img src="assets/projeto2.png" alt="Primeiro projeto">
@@ -232,6 +258,7 @@
                         </div>
                     </div>
                 </div>
+                <!--Card 3-->
                 <div class="projeto1 card3 hiden2">
                     <div class="imagemProjeto">
                         <img src="assets/projeto3.png" alt="Primeiro projeto">
@@ -267,9 +294,12 @@
             </div>
         </section>
 
+        <!--Divisão entre sections-->
         <div class="divisao2  hiden animar"><h1>Contato</h1></div>
 
+        <!--Section contato-->
         <section id="contato" data-color="#0000" class="contatoSection">
+            <!--Texto da section-->
             <div class="info">
                 <header class="infoTitulo hiden">
                     <h2>Algum interesse? Estou sempre aberto para conversamos
@@ -298,6 +328,7 @@
                     </a>
                 </div>
             </div>
+            <!--Forms da section-->
             <div class="inputContato hiden2">
                 <div class="inputNome tituloAnima3">
                     <input class="place" type="text" placeholder="Seu nome">
@@ -318,5 +349,6 @@
 
     </main>
 </body>
+<!--JavaScript-->
 <script src="script.js"></script>
 </html>

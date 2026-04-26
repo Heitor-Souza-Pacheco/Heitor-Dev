@@ -3,6 +3,9 @@ TABLETS
 ======================= */
 
 @media (max-width: 1024px){
+* {
+    overflow-x: hidden;
+}
 
 .principal{
     flex-direction: column;
@@ -79,6 +82,9 @@ CELULARES
 ======================= */
 
 @media (max-width: 768px){
+* {
+    overflow-x: hidden;
+}
 
 .menu{
     transform: none;
@@ -147,6 +153,9 @@ CELULARES PEQUENOS
 ======================= */
 
 @media (max-width: 480px){
+* {
+    overflow-x: hidden;
+}
 
 .meuNome{
     font-size: 28px;
