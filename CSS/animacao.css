@@ -1,0 +1,147 @@
+.hiden {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.tituloAnima {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(-50%);
+    transition: all 1s;
+}
+
+.tituloAnima2 {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(50%);
+    transition: all 1s;
+}
+
+.tituloAnima3 {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(100%);
+    transition: all 1s;
+}
+
+.tituloAnimaShow {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0%);
+}
+
+.hiden2 {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0%);
+}
+
+.hiden:nth-child(2){
+    transition-delay: 300ms;
+}
+
+.hiden:nth-child(3){
+    transition-delay: 200ms;
+}
+
+.hiden:nth-child(4){
+    transition-delay: 500ms;
+}
+
+.hiden:nth-child(5){
+    transition-delay: 700ms;
+}
+
+.hiden:nth-child(6){
+    transition-delay: 700ms;
+}
+
+.hiden:nth-child(7){
+    transition-delay: 1000ms;
+}
+
+.hiden:nth-child(8){
+    transition-delay: 1500ms;
+}
+
+.hiden:nth-child(9){
+    transition-delay: 2000ms;
+}
+
+.hiden:nth-child(10){
+    transition-delay: 2500ms;
+}
+
+.hiden:nth-child(11){
+    transition-delay: 3000ms;
+}
+
+.hiden:nth-child(12){
+    transition-delay: 3500ms;
+}
+
+.hiden:nth-child(13){
+    transition-delay: 200ms;
+}
+
+.hiden:nth-child(14){
+    transition-delay: 400ms;
+}
+
+.hiden:nth-child(15){
+    transition-delay: 600ms;
+}
+
+.menu {
+    position: fixed;
+}
+
+.animar {
+opacity: 0;
+transform: translateY(40px);
+}
+
+.animar.ativo {
+animation: aparecer 0.8s ease forwards;
+}
+
+.animar.desativo {
+    animation: desaparecer 0.8s ease forwards
+}
+
+@keyframes aparecer {
+from {
+opacity: 0;
+transform: translateY(40px);
+filter: blur(10px);
+}
+
+to {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0);
+}
+}
+
+@keyframes desaparecer {
+from {
+opacity: 1;
+transform: translateY(0);
+filter: blur(0);
+}
+
+to {
+opacity: 0;
+transform: translateY(-40px);
+filter: blur(10px);
+}
+}

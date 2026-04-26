@@ -1,0 +1,165 @@
+.projetosSection {
+    margin-top: 10rem;
+}
+
+.tituloProjetos h1{
+    text-align: center;
+    font-family: Oswald;
+    font-weight: 600;
+    font-size: 55px;
+    padding-top: 8rem;
+}
+
+hr {
+    border: none;         
+    background-color: red; 
+    height: 2px;                 
+    width: 150px;
+    margin: auto;
+    margin-top: 10px;  
+    margin-bottom: 8rem;
+}
+
+.projetosContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+}
+
+.projeto1 {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+}
+
+.imagemProjeto img {
+    width: 100%;
+    max-width: 350px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.corpoProjeto {
+    background-color: rgb(14, 14, 14);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.corpoTexto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.projetoTitulo {
+    margin: 2rem 0 1rem 1.5rem;
+    font-family: Oswald;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.textoProjeto {
+    margin: 0 0 1.5rem 1.5rem;
+    color: rgba(235, 229, 229, 0.849);
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 500;
+    width: 250px;
+}
+
+.usoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-left: -100px;
+    margin-bottom: 1rem;
+}
+
+.uso {
+    border: solid red 0.4px;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.uso:hover {
+    box-shadow: rgba(192, 8, 8, 0.576) 0px 54px 55px, rgba(223, 5, 5, 0.516) 0px -12px 30px, rgba(224, 4, 4, 0.453) 0px 4px 6px, rgba(200, 9, 9, 0.461) 0px 12px 13px, rgba(158, 7, 7, 0.437) 0px -3px 5px;
+    transform: scale(1.05);
+}
+
+.botaoLink:hover {
+    box-shadow: rgba(192, 8, 8, 0.576) 0px 54px 55px, rgba(223, 5, 5, 0.516) 0px -12px 30px, rgba(224, 4, 4, 0.453) 0px 4px 6px, rgba(200, 9, 9, 0.461) 0px 12px 13px, rgba(158, 7, 7, 0.437) 0px -3px 5px;
+    transform: scale(1.05);
+    background-color: red;
+    color: white;
+    transition: 0.3s;
+}
+
+.uso p {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    color: whitesmoke;
+}
+
+.linkContainer {
+    margin: 1.5rem 0 2rem 2rem;
+}
+
+.botaoLink {
+    border: solid red 0.4px;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+    width: 80px;
+    text-align: center;
+}
+
+.linkContainer a {
+    text-decoration: none;
+    color: rgb(203, 25, 25);
+    font-family: Oswald;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.projeto1:hover {
+    border: solid red 0.4px;
+    border-radius: 20px;
+    box-shadow: rgb(231, 12, 12) 0px 20px 30px -10px;
+    transform: translateY(-15px) scale(1.05);
+
+}
+
+.usoContainer2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-left: -10px;
+    margin-bottom: 1rem;
+}
+
+.uso2 {
+    border: solid red 0.4px;
+    border-radius: 50px;
+    padding: 0.5rem 1rem;
+}
+
+.uso2:hover {
+    box-shadow: rgba(192, 8, 8, 0.576) 0px 54px 55px, rgba(223, 5, 5, 0.516) 0px -12px 30px, rgba(224, 4, 4, 0.453) 0px 4px 6px, rgba(200, 9, 9, 0.461) 0px 12px 13px, rgba(158, 7, 7, 0.437) 0px -3px 5px;
+    transform: scale(1.05);
+}
+
+.uso2 p {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    color: whitesmoke;
+}
