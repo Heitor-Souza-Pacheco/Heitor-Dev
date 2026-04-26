@@ -1,0 +1,127 @@
+.contatoSection {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15rem;
+
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width:100%;
+    max-width:700px;
+    margin-left: 15rem;
+}
+
+.infoTitulo {
+    font-family: Roboto;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+
+.infoContatos {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.email, .telefone {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+}
+
+.email, .telefone {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.telefone {
+    margin-bottom: 2rem;
+}
+
+.ico {
+    color: red;
+    font-size: 35px;
+}
+
+.logoFinal {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+}
+
+.inputContato {
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    width:100%;
+    max-width:500px;
+    gap: 4rem;
+    border: solid red 0.6px;
+    border-radius: 15px;
+    background-color: rgba(19, 19, 19, 0.499);
+    backdrop-filter: blur(10px);
+    box-shadow: rgba(150, 17, 17, 0.569) 0px 2px 1px, rgba(168, 7, 7, 0.609) 0px 4px 2px, rgba(182, 6, 6, 0.577) 0px 8px 4px, rgba(183, 12, 12, 0.513) 0px 16px 8px, rgba(164, 6, 6, 0.557) 0px 32px 16px;
+}
+
+.inputContato:hover {
+    transform: translateY(-10px);
+    transition:0.3s;
+}
+
+.inputNome input{
+    width: 400px;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: red solid 0.4px;
+    border-radius: 20px;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.infoContatos input, .inputEmail input{
+    width: 400px;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: red solid 0.4px;
+    border-radius: 20px;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.mensagem input{
+    width: 400px;
+    height: 40px;
+    background-color: transparent;
+    outline: none;
+    border: red solid 0.4px;
+    border-radius: 20px;
+    color: white;
+    padding: 1rem 2rem;
+}
+
+.botao {
+    background-color: transparent;
+    border: solid red 0.5px;
+    border-radius: 25px;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    font-family: Oswald;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.botao:hover {
+    transition: 0.3s;
+    transform: scale(1.15);
+    background-color: red;
+    box-shadow: rgba(172, 8, 8, 0.599) 0px 54px 55px, rgba(178, 8, 8, 0.563) 0px -12px 30px, rgba(179, 9, 9, 0.571) 0px 4px 6px, rgba(149, 10, 10, 0.599) 0px 12px 13px, rgba(168, 12, 12, 0.567) 0px -3px 5px;
+}

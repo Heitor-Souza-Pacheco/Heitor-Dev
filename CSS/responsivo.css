@@ -1,0 +1,379 @@
+/* =======================
+TABLETS
+======================= */
+
+@media (max-width: 1024px){
+
+.principal{
+    flex-direction: column;
+    text-align: center;
+    gap: 4rem;
+    margin-top: -5rem;
+}
+
+.titulo{
+    max-width: 80%;
+}
+
+.meuNome{
+    font-size: 42px;
+}
+
+.funcao{
+    font-size: 28px;
+}
+
+.orbit-container{
+    transform: scale(0.8);
+}
+
+.sobreMim{
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.fotoEu{
+    width: 100%;
+    padding-left: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.fotoEu img{
+    width: 350px;
+}
+
+.texto{
+    width: 80%;
+    margin-right: 0;
+    gap: 5rem;
+}
+
+.expContainer{
+    flex-direction: column;
+}
+
+.projetosContainer{
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.contatoSection{
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.info{
+    width: 80%;
+    margin-left: 0;
+}
+
+.inputContato{
+    width: 80%;
+}
+
+}
+
+/* =======================
+CELULARES
+======================= */
+
+@media (max-width: 768px){
+
+.menu{
+    transform: none;
+    margin-left: 0;
+}
+
+nav{
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.selecaoMenu{
+    margin-left: 0;
+}
+
+.itensMenu{
+    gap: 1.5rem;
+}
+
+.icones{
+    gap: 1rem;
+}
+
+.meuNome{
+    font-size: 34px;
+}
+
+.funcao{
+    font-size: 22px;
+}
+
+.resumo{
+    font-size: 16px;
+}
+
+.orbit-container{
+    transform: scale(0.65);
+}
+
+.projeto1{
+    max-width: 90%;
+}
+
+.imagemProjeto img{
+    width: 100%;
+}
+
+.inputNome input,
+.inputEmail input,
+.mensagem input{
+    width: 100%;
+}
+
+.inputContato{
+    width: 90%;
+}
+
+.info{
+    width: 90%;
+}
+
+}
+
+/* =======================
+CELULARES PEQUENOS
+======================= */
+
+@media (max-width: 480px){
+
+.meuNome{
+    font-size: 28px;
+}
+
+.funcao{
+    font-size: 18px;
+}
+
+.orbit-container{
+    transform: scale(0.55);
+}
+
+.fotoEu img{
+    width: 260px;
+}
+
+.projetosContainer{
+    gap: 3rem;
+}
+
+}
+
+/* ==========================
+MENU HAMBURGUER - RESPONSIVO
+========================== */
+
+@media (max-width: 768px) {
+    /* Mostra o hamburguer */
+    .menu-hamburguer {
+        display: flex !important;
+    }
+    
+    /* Esconde menu desktop */
+    .selecaoMenu {
+        display: none !important;
+    }
+    
+    .icones {
+        display: none !important;
+    }
+    
+    /* Ajuste no header */
+    .menu {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+    }
+    
+    nav {
+        padding: 0;
+    }
+    
+    /* Esconde o nome Heitor no mobile */
+    .linkHome {
+        display: none;
+    }
+    
+    /* Overlay escuro quando menu aberto (opcional) */
+    .menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 999998;
+    }
+    
+    .menu-overlay.ativo {
+        display: block;
+    }
+}
+
+/* Para celulares muito pequenos */
+@media (max-width: 480px) {
+    .menu-mobile {
+        width: 250px;
+        padding: 90px 20px 30px 20px;
+    }
+    
+    .menu-mobile a {
+        font-size: 20px;
+        padding: 12px 0;
+    }
+    
+    .menu-mobile .icones-mobile {
+        gap: 25px;
+    }
+    
+    .menu-mobile .icones-mobile img {
+        width: 35px;
+    }
+}
+
+/* =======================
+CONTATO - CORREÇÃO COMPLETA
+======================= */
+
+@media (max-width: 1024px) {
+    .contatoSection {
+        flex-direction: column;
+        gap: 3rem;
+        padding: 2rem;
+        min-height: auto; /* remove altura mínima excessiva */
+    }
+    
+    .info {
+        width: 100%;
+        max-width: 600px;
+        margin-left: 0;
+        padding: 0 1rem;
+    }
+    
+    .inputContato {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto; /* centraliza */
+    }
+}
+
+@media (max-width: 768px) {
+    .contatoSection {
+        padding: 1.5rem 1rem;
+        gap: 2.5rem;
+    }
+    
+    .info {
+        width: 100%;
+        padding: 0;
+    }
+    
+    .infoTitulo {
+        font-size: 16px;
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    
+    .infoContatos {
+        width: 100%;
+        align-items: center;
+    }
+    
+    .email, .telefone {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap; /* quebra em telas muito pequenas */
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .email p, .telefone p {
+        font-size: 16px;
+        word-break: break-word; /* evita que texto longo vaze */
+    }
+    
+    .ico {
+        font-size: 28px;
+    }
+    
+    .logoFinal {
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    
+    .inputContato {
+        width: 100%;
+        max-width: 100%;
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+    
+    .inputNome input,
+    .inputEmail input,
+    .mensagem input {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.8rem 1rem;
+        font-size: 14px;
+    }
+    
+    .submitBotao {
+        text-align: center;
+    }
+    
+    .botao {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contatoSection {
+        padding: 1rem 0.8rem;
+    }
+    
+    .infoTitulo h2 {
+        font-size: 18px;
+        line-height: 1.4;
+    }
+    
+    .email, .telefone {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .email p, .telefone p {
+        font-size: 14px;
+    }
+    
+    .inputContato {
+        padding: 1rem;
+    }
+    
+    .inputNome input,
+    .inputEmail input,
+    .mensagem input {
+        padding: 0.7rem 0.8rem;
+        font-size: 13px;
+    }
+    
+    .botao {
+        font-size: 14px;
+        padding: 0.6rem 1rem;
+    }
+}

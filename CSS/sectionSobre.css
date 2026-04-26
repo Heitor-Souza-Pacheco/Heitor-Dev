@@ -1,0 +1,119 @@
+.sobreMim {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.fotoEu {
+    width: 50%;
+    padding-left: 8rem;
+}
+
+.fotoEu img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: rgba(152, 12, 12, 0.45) 0px 25px 20px -20px;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    width: 40%;
+    margin-right: 10rem;
+}
+
+.textoSobre {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    line-height: 2rem;
+}
+
+.textoSobre p {
+    font-size: 18px;
+    font-family: Lato;
+    font-weight: 400;
+    color: white;
+}
+
+.expContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; /* faz todos terem mesma altura */
+    gap: 2rem;
+}
+
+.cabecalho h1 {
+    font-family: Oswald;
+    font-size: 18px;
+    font-weight: 600;
+    color: red;
+}
+
+.cabecalho {
+    margin-left: -10px;
+}
+
+.educacaoTexto {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 17px;
+    padding-top: 2.7rem;
+    line-height: 1.5rem;
+}
+
+.edu {
+    position: relative;
+    transform: translateY(-20px);
+}
+
+.exp {
+    position: relative;
+    transform: translateY(-20px);
+}
+
+.expTexto {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 17px;
+    padding-top: 1.6rem;
+    line-height: 1.5rem;
+}
+
+.conhecimentosTexto {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 17px;
+    margin-top: 10px;
+    padding-top: 1rem;
+}
+
+.con {
+    margin-top: -20px;
+}
+
+.educacao,
+.experiencia,
+.conhecimentos {
+    border: solid red 0.5px;
+    border-radius: 15px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    flex: 1; /* todos ocupam o mesmo espaço */
+}
+
+.educacao:hover,
+.experiencia:hover,
+.conhecimentos:hover {
+    transform: translateY(-20px) scale(1.05);
+    transition: 0.3s;
+    box-shadow: 0 10px 30px rgba(255, 0, 0, 0.806);
+    transform: scale(1.15);
+}

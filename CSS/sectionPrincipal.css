@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 6rem;
+}
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 35%;
+}
+
+.meuNome {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 55px;
+    color: white;
+}
+
+.funcao {
+    font-family: Montserrat;
+    font-weight: 500;
+    color: red;
+    font-size: 40px;
+    margin-top: -10px;
+    border-bottom: solid red 0.4px;
+    padding-bottom: 10px;
+}
+
+.resumo {
+    line-height: 2rem;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+}
+
+
+
+.botaoContato {
+    border-radius: 50px;
+    background-color: transparent;
+    padding: 0.5rem 1.2rem;
+    border: solid rgba(133, 19, 19, 0.843) 0.4px;
+    color: white;
+    font-family: Inter;
+    font-weight: 500;
+    font-size: 10px;
+    margin-top: 1rem;
+    box-shadow: rgb(72, 74, 77) 0px 20px 30px -10px;
+}
+
+.botaoContato:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    background-color: rgba(255, 0, 0, 0.79);
+    transition: 0.3s;
+    box-shadow: rgb(95, 43, 43) 0px 20px 30px -10px;
+}
+
+.orbit-container {
+    position: relative;
+    width: clamp(260px, 70vw, 540px);
+    height: clamp(260px, 70vw, 540px);
+}
+
+.perfil {
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 60% / 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2; /* acima da órbita */
+    border: solid red 0.8px;
+    box-shadow: rgba(209, 5, 5, 0.85) 0px 20px 30px -10px;
+}
+
+/* container que gira */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;  /* importante: largura zero */
+    height: 0; /* altura zero */
+    transform: translate(-50%, -50%);
+    animation: girar 20s linear infinite;
+}
+
+/* cada wrapper de logo */
+.orbitaItem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 0; /* rotaciona em torno do centro do container */
+}
+
+
+.logo:hover {
+    background-color: red;
+    box-shadow: rgba(148, 19, 19, 0.515) 0px 54px 55px, rgba(128, 14, 14, 0.51) 0px -12px 30px, rgba(141, 13, 13, 0.558) 0px 4px 6px, rgba(137, 14, 14, 0.577) 0px 12px 13px, rgba(141, 13, 13, 0.548) 0px -3px 5px;
+    transition: 0.3s;
+}
+
+/* posição de cada logo na órbita */
+.item1 { transform: rotate(0deg); }
+.item2 { transform: rotate(72deg); }
+.item3 { transform: rotate(144deg); }
+.item4 { transform: rotate(216deg); }
+.item5 { transform: rotate(288deg); }
+
+/* ícones */
+.logo {
+    position: absolute;
+    top: 0;
+    left: 220px; /* distância da foto */
+    width: 40px;
+    height: 40px;
+    padding: 6px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    border: 2px solid rgba(255,0,0,0.6);
+    box-shadow: 0 0 8px rgba(255,0,0,0.6);
+}
+
+/* animação da órbita */
+@keyframes girar {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (max-width:768px){
+
+.orbit-container{
+    transform: scale(0.65);
+}
+
+.logo{
+    left:150px;
+    width:30px;
+    height:30px;
+}
+
+}

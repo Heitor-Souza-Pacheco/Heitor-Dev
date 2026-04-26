@@ -1,0 +1,40 @@
+.divisao,
+.divisaoprojetos,
+.divisao2 {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6rem;
+}
+
+.divisao2{
+    margin-top:2rem;
+}
+
+.divisao h1,
+.divisaoprojetos h1,
+.divisao2 h1{
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+/* linha vermelha */
+.divisao h1::after,
+.divisaoprojetos h1::after,
+.divisao2 h1::after{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: red;
+}
+
+.divisao {
+    margin-top: 5rem;
+}
