@@ -69,61 +69,68 @@ const experienceSection = document.querySelector(".experience");
 const experienceIntro = document.querySelector(".experience-intro");
 const experienceItems = document.querySelectorAll(".experience-item");
 
+// Adiciona a classe no frame seguinte ao observer.
+// Isso garante que o navegador tenha tempo de renderizar
+// o estado inicial antes de iniciar a animação.
+const revealElement = (element, className) => {
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            element.classList.add(className);
+        });
+    });
+};
+
 if (experienceSection) {
-    // Ativa a linha da timeline assim que a seção começa a entrar na tela.
     const timelineObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    experienceSection.classList.add("visible");
+                    revealElement(experienceSection, "visible");
                     timelineObserver.unobserve(experienceSection);
                 }
             });
         },
         {
-            threshold: 0.08
+            threshold: 0.05,
+            rootMargin: "0px 0px -5% 0px"
         }
     );
 
     timelineObserver.observe(experienceSection);
 }
 
-// A introdução entra deslizando quando chega ao viewport.
 if (experienceIntro) {
     const introObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    experienceIntro.classList.add("is-visible");
+                    revealElement(experienceIntro, "is-visible");
                     introObserver.unobserve(entry.target);
                 }
             });
         },
         {
-            threshold: 0.2,
-            rootMargin: "0px 0px -8% 0px"
+            threshold: 0.05,
+            rootMargin: "0px 0px -5% 0px"
         }
     );
 
     introObserver.observe(experienceIntro);
 }
 
-// Cada experiência possui sua própria animação de entrada.
-// Assim o segundo card só começa a deslizar quando realmente
-// estiver chegando à área visível da tela.
 if (experienceItems.length) {
     const itemObserver = new IntersectionObserver(
         (entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add("is-visible");
+                    revealElement(entry.target, "is-visible");
                     itemObserver.unobserve(entry.target);
                 }
             });
         },
         {
-            threshold: 0.12,
-            rootMargin: "0px 0px -6% 0px"
+            threshold: 0.05,
+            rootMargin: "0px 0px -5% 0px"
         }
     );
 
