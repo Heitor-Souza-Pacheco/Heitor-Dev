@@ -1,71 +1,38 @@
-const myObserver = new IntersectionObserver((entries) => {
+// ========================================
+// REVEAL ON SCROLL — versão única e "one-shot"
+// (antes eram 5 observers quase idênticos, e cada um
+// desfazia a animação sempre que o elemento saía da tela.
+// Isso fazia dezenas de elementos re-animarem blur+transform
+// toda vez que a pessoa rolava a página pra cima ou pra baixo,
+// o que causava o travamento. Agora cada elemento revela
+// uma única vez e para de ser observado.)
+const revealTargets = [
+    { selector: '.hiden', className: 'show' },
+    { selector: '.hiden2', className: 'show' },
+    { selector: '.tituloAnima', className: 'tituloAnimaShow' },
+    { selector: '.tituloAnima2', className: 'tituloAnimaShow' },
+    { selector: '.tituloAnima3', className: 'tituloAnimaShow' },
+];
+
+const revealObserver = new IntersectionObserver((entries, observerRef) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
+            const className = entry.target.dataset.revealClass;
+            entry.target.classList.add(className);
+            observerRef.unobserve(entry.target);
         }
     });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -5% 0px'
 });
 
-const elements = document.querySelectorAll('.hiden');
-elements.forEach((element) => myObserver.observe(element));
-
-
-const myObserver2 = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        } else {
-            entry.target.classList.remove('show');
-        }
+revealTargets.forEach(({ selector, className }) => {
+    document.querySelectorAll(selector).forEach((element) => {
+        element.dataset.revealClass = className;
+        revealObserver.observe(element);
     });
 });
-
-const elements2 = document.querySelectorAll('.hiden2');
-elements2.forEach((element) => myObserver2.observe(element));
-
-
-const myObserver3 = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('tituloAnimaShow');
-        } else {
-            entry.target.classList.remove('tituloAnimaShow');
-        }
-    });
-});
-
-const elements3 = document.querySelectorAll('.tituloAnima');
-elements3.forEach((element) => myObserver3.observe(element));
-
-
-const myObserver4 = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('tituloAnimaShow');
-        } else {
-            entry.target.classList.remove('tituloAnimaShow');
-        }
-    });
-});
-
-const elements4 = document.querySelectorAll('.tituloAnima2');
-elements4.forEach((element) => myObserver4.observe(element));
-
-
-const myObserver5 = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('tituloAnimaShow');
-        } else {
-            entry.target.classList.remove('tituloAnimaShow');
-        }
-    });
-});
-
-const elements5 = document.querySelectorAll('.tituloAnima3');
-elements5.forEach((element) => myObserver5.observe(element));
 
 
 // Parte de navegação
@@ -162,28 +129,6 @@ const observer = new IntersectionObserver((entries) => {
 
 elementos.forEach((el) => observer.observe(el));
 
-
-// ========================================
-// EXPERIENCE — SCROLL REVEAL
-// ========================================
-
-const experienceSection = document.querySelector('.experience');
-
-if (experienceSection) {
-    // A classe só ativa o estado inicial da animação.
-    // Sem JavaScript, a seção continua visível normalmente.
-    experienceSection.classList.add('animate-ready');
-
-    const experienceObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                experienceSection.classList.add('visible');
-                experienceObserver.unobserve(experienceSection);
-            }
-        });
-    }, {
-        threshold: 0.2
-    });
-
-    experienceObserver.observe(experienceSection);
-}
+// Observação: a revelação da seção #experiencia (.experience) já é
+// feita pelo navbar.js (que também anima cada card individualmente).
+// Ter dois observers cuidando da mesma seção era redundante.

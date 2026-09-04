@@ -1,48 +1,55 @@
 .hiden {
     opacity: 0;
-    filter: blur(15px);
-    transform: translateX(-100%);
-    transition: all 1s;
+    filter: blur(8px);
+    transform: translateX(-60px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    will-change: opacity, transform, filter;
 }
 
 .tituloAnima {
     opacity: 0;
-    filter: blur(15px);
-    transform: translateY(-50%);
-    transition: all 1s;
+    filter: blur(8px);
+    transform: translateY(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    will-change: opacity, transform, filter;
 }
 
 .tituloAnima2 {
     opacity: 0;
-    filter: blur(15px);
-    transform: translateY(50%);
-    transition: all 1s;
+    filter: blur(8px);
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    will-change: opacity, transform, filter;
 }
 
 .tituloAnima3 {
     opacity: 0;
-    filter: blur(15px);
-    transform: translateY(100%);
-    transition: all 1s;
+    filter: blur(8px);
+    transform: translateY(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    will-change: opacity, transform, filter;
 }
 
 .tituloAnimaShow {
     opacity: 1;
     filter: blur(0px);
     transform: translateY(0%);
+    will-change: auto;
 }
 
 .hiden2 {
     opacity: 0;
-    filter: blur(15px);
-    transform: translateX(100%);
-    transition: all 1s;
+    filter: blur(8px);
+    transform: translateX(60px);
+    transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease;
+    will-change: opacity, transform, filter;
 }
 
 .show {
     opacity: 1;
     filter: blur(0px);
     transform: translateX(0%);
+    will-change: auto;
 }
 
 .hiden:nth-child(2){
