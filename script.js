@@ -57,4 +57,15 @@
 
         elementos.forEach((element) => observer.observe(element));
     }
+
+    // ========================================
+    // PROJETOS V2
+    // Carrega a vitrine backend depois da estrutura
+    // principal estar disponível no DOM.
+    // ========================================
+
+    const projectsScript = document.createElement('script');
+    projectsScript.src = 'projects-v2.js';
+    projectsScript.defer = true;
+    document.body.appendChild(projectsScript);
 })();
