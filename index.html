@@ -12,129 +12,273 @@
     <link rel="stylesheet" href="CSS/projetos.css">
     <link rel="stylesheet" href="CSS/contato.css">
     <link rel="stylesheet" href="CSS/responsivo.css">
-    <!-- Portfolio V2: design system loaded last while the old interface is being replaced. -->
     <link rel="stylesheet" href="CSS/v2-base.css">
+    <link rel="stylesheet" href="CSS/v2-hero.css">
+    <link rel="stylesheet" href="CSS/v2-navbar.css">
+    <link rel="stylesheet" href="CSS/v2-experience.css">
     <link rel="icon" href="assets/Icone.png">
+
 </head>
-
-<!--Cabeçalho-->
-<header class="menu">
-    <!--Navegação celular-->
-    <div class="menu-hamburguer" id="menu-hamburguer">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <!--Navegção pc-->
-    <nav>
-        <a href="#home" class="linkHome">
-            <span class="nomeNav">Heitor</span>
-        </a>
-        <div class="selecaoMenu">
-            <ul class="itensMenu">
-                <li>
-                    <a class="home navegacao" href="#home">Home</a>
-                </li>
-                <li>
-                    <a id="sobreid" class="sobre navegacao" href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a class="projetos navegacao" href="#projetos">Projetos</a>
-                </li>
-                <li>
-                    <a class="contato navegacao" href="#contato">Contato</a>
-                </li>
-            </ul>
-        </div>
-        <!--Icones do nav-->
-        <span class="icones">
-            <a href="https://github.com/Heitor-Souza-Pacheco">
-                <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="">
-            </a>
-            <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-                <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="">
-            </a>
-            <a href="https://www.instagram.com/_.hei_tor/">
-                <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg?semt=ais_hybrid&w=740&q=80" alt="">
-            </a>
-        </span>
-    </nav>
-</header>
-<!--Menu responsivo em celular-->
-<div class="menu-mobile">
-
-    <a href="#home">Home</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-    <div class="icones-mobile">
-        <a href="https://github.com/Heitor-Souza-Pacheco">
-            <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png">
-        </a>
-
-        <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-            <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png">
-        </a>
-
-        <a href="https://www.instagram.com/_.hei_tor/">
-            <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg">
-        </a>
-    </div>
-
-</div>
 
 <!--Começo do código corpo da página-->
 <body>
+    <nav class="navbar-v2">
+    <a href="#home" class="nav-logo">
+        H<span>.</span>PACHECO
+    </a>
+    <ul class="nav-links">
+        <li>
+            <a href="#home" class="nav-link active">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="#sobre" class="nav-link">
+                Sobre
+            </a>
+        </li>
+        <li>
+            <a href="#experiencia" class="nav-link">
+                Experiência
+            </a>
+        </li>
+        <li>
+            <a href="#projetos" class="nav-link">
+                Projetos
+            </a>
+        </li>
+        <li>
+            <a href="#contato" class="nav-link">
+                Contato
+            </a>
+        </li>
+    </ul>
+
+    <div class="nav-social">
+
+        <a href="https://github.com/Heitor-Souza-Pacheco" target="_blank" aria-label="GitHub">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="">
+        </a>
+
+        <a href="https://www.linkedin.com/in/heitor-souza-pacheco/" target="_blank" aria-label="LinkedIn">
+            <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="">
+        </a>
+
+    </div>
+
+    <button class="nav-menu-button" aria-label="Abrir menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+</nav>
+<div class="mobile-menu">
+
+    <a href="#home" class="mobile-link">
+        Home
+    </a>
+
+    <a href="#sobre" class="mobile-link">
+        Sobre
+    </a>
+
+    <a href="#experiencia" class="mobile-link">
+        Experiência
+    </a>
+
+    <a href="#projetos" class="mobile-link">
+        Projetos
+    </a>
+
+    <a href="#contato" class="mobile-link">
+        Contato
+    </a>
+
+    <div class="mobile-social">
+
+        <a href="https://github.com/Heitor-Souza-Pacheco" target="_blank">
+            GitHub ↗
+        </a>
+
+        <a href="https://www.linkedin.com/in/heitor-souza-pacheco/" target="_blank">
+            LinkedIn ↗
+        </a>
+
+    </div>
+
+</div>
     <main>
 
         <!--Section do começo-->
-        <section id="home" data-color="#0000" class="principal">
-            <!--Escrito no título-->
-            <div id="tituloPrincipal" class="titulo">
-                <h1 class="meuNome tituloAnima">Olá, eu sou o Heitor</h1>
-                <h2 class="funcao tituloAnima2">Estudante de Informática</h2>
-                <p class="resumo hiden">
-                    Eu estou cursando o segundo ano do ensino médio no Colégio Técnico Cotemig e estagiando como Dev na Arújo. Domino
-                    algumas linguagens de programação como HTML, CSS, JavaScript, Python, C# e Java. Busco sempre melhorar nesse ramo através
-                    de novos projetos.
+        <section id="home" class="hero">
+            <div class="hero-glow"></div>
+            <div class="hero-grid"></div>
+            <div class="hero-content">
+                <p class="hero-eyebrow">
+                    <span class="status-dot"></span>
+                    DESENVOLVEDOR BACKEND
                 </p>
-                <a href="#contato">
-                    <button class="botaoContato tituloAnima3">
-                        <h2>Contate-me</h2>
-                    </button>
-                </a>
+                <h1 class="hero-title">
+                    Heitor
+                    <span>Pacheco.</span>
+                </h1>
+                <h2 class="hero-subtitle">
+                    Java • Spring Boot • SQL • Docker
+                </h2>
+                <p class="hero-description">
+                    Desenvolvedor backend, amante da tecnologia, desenvolvimento de APIs REST e construção
+                    de soluções eficientes.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projetos" class="hero-button hero-button-primary">
+                        Ver projetos
+                        <span></span>
+                    </a>
+                    <a href="https://github.com/Heitor-Souza-Pacheco" target="_blank" class="hero-button hero-button-secondary">
+                        Github
+                        <span></span>
+                    </a>
+                </div>
             </div>
-            <!--Foto de perfil-->
-            <div class="img hiden2">
-                <div class="orbit-container ">
-                    <img src="assets/foto perfil.jpg" class="perfil">
-                    <div class="orbit">
-                        <div class="orbitaItem item1">
-                            <img src="assets/HTML.png" class="logo">
-                        </div>
+            <div class="hero-tech">
+                <div class="tech-card tech-java">
+                    Java
+                </div>
+                <div class="tech-card tech-spring">
+                    Spring Boot
+                </div>
+                <div class="tech-card tech-sql">
+                    SQL
+                </div>
+                <div class="tech-card tech-docker">
+                    Docker
+                </div>
+            </div>
+            <a href="#sobre" class="scroll-indicator">
+                <span>SCROLL</span>
+                <span class="scroll-arrow">↓</span>
+            </a>
+        </section>
+        <section id="experiencia" class="experience">
 
-                        <div class="orbitaItem item2">
-                            <img src="assets/CSS.webp" class="logo">
+    <div class="experience-container">
+        <div class="experience-intro">
+            <span class="section-label">
+                EXPERIÊNCIA
+            </span>
+            <h2>
+                Onde estou
+                <span>construindo experiência.</span>
+            </h2>
+            <p>
+                Minha trajetória profissional começou cedo e vem sendo
+                construída através de experiências práticas em tecnologia,
+                desenvolvimento e trabalho em equipe.
+            </p>
+            <div class="experience-line"></div>
+        </div>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div>
+                            <span class="experience-date">
+                                2026 — PRESENTE
+                            </span>
+                            <h3>
+                                Drogaria Araújo
+                            </h3>
+                            <p class="experience-role">
+                                Estagiário Técnico
+                            </p>
                         </div>
-
-                        <div class="orbitaItem item3">
-                            <img src="assets/JAVASCRIPT.png" class="logo">
+                        <span class="experience-number">
+                            01
+                        </span>
+                    </div>
+                    <div class="experience-card-body">
+                        <p>
+                            Atuação no desenvolvimento e manutenção de
+                            sistemas backend, trabalhando principalmente
+                            com Java e Spring Boot em uma API já existente.
+                        </p>
+                        <div class="experience-technologies">
+                            <span>Java</span>
+                            <span>Spring Boot</span>
+                            <span>SQL</span>
+                            <span>Docker</span>
+                            <span>Kafka</span>
+                            <span>Tanzu</span>
+                            <span>New Relic</span>
                         </div>
-
-                        <div class="orbitaItem item4">
-                            <img src="assets/PYTHON.png" class="logo">
+                        <div class="experience-highlights">
+                            <div>
+                                <span>01</span>
+                                Desenvolvimento de novas funcionalidades
+                            </div>
+                            <div>
+                                <span>02</span>
+                                Manutenção e evolução de sistemas
+                            </div>
+                            <div>
+                                <span>03</span>
+                                Documentação e migrações
+                            </div>
+                            <div>
+                                <span>04</span>
+                                Análise arquitetural de API legada
+                            </div>
                         </div>
-
-                        <div class="orbitaItem item5">
-                            <img src="assets/cSharp.png" class="logo">
+                        <button class="experience-details-button" type="button">
+                            Ver detalhes
+                            <span>↗</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-item experience-item-secondary">
+                <div class="experience-marker">
+                    <span></span>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-card-header">
+                        <div>
+                            <span class="experience-date">
+                                EXPERIÊNCIA ANTERIOR
+                            </span>
+                            <h3>
+                                Freelancer
+                            </h3>
+                            <p class="experience-role">
+                                Produção audiovisual
+                            </p>
                         </div>
-                        <div class="orbitaItem item6">
-                            <img src="assets/JavaLogo.png" class="logo">
+                        <span class="experience-number">
+                            02
+                        </span>
+                    </div>
+                    <div class="experience-card-body">
+                        <p>
+                            Experiência trabalhando em equipe na gravação
+                            de vídeos em salões de festas, desenvolvendo
+                            principalmente comunicação, organização e
+                            contato direto com o público.
+                        </p>
+                        <div class="experience-technologies">
+                            <span>Comunicação</span>
+                            <span>Trabalho em equipe</span>
+                            <span>Atendimento</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+</section>
 
         <!--Divisão entre sections-->
         <div id="divSobre" class="divisao animar hiden"><h1>Sobre mim</h1></div>
@@ -353,4 +497,6 @@
 </body>
 <!--JavaScript-->
 <script src="script.js"></script>
+<script src="hero.js"></script>
+<script src="navbar.js"></script>
 </html>
