@@ -62,23 +62,19 @@ if (menuButton && mobileMenu) {
 }
 
 // ========================================
-// EXPERIENCE — SCROLL REVEAL
+// EXPERIENCE — INTERACTION
 // ========================================
 
 const experienceSection = document.querySelector(".experience");
 
 if (experienceSection) {
-    experienceSection.classList.add("animate-ready");
-
     const experienceObserver = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
             entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
+                if (entry.isIntersecting) {
+                    experienceSection.classList.add("visible");
+                    experienceObserver.unobserve(experienceSection);
                 }
-
-                experienceSection.classList.add("visible");
-                observer.unobserve(experienceSection);
             });
         },
         {
