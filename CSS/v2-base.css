@@ -1,0 +1,101 @@
+/* =========================================================
+   HEITOR DEV — PORTFOLIO V2
+   Design System / Foundation
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Backgrounds */
+    --bg-primary: #070A12;
+    --bg-secondary: #0D111C;
+    --bg-card: #111827;
+    --bg-card-hover: #151E2F;
+
+    /* Brand */
+    --brand-blue: #4F8CFF;
+    --brand-purple: #8B5CF6;
+    --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+
+    /* Text */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+
+    /* Borders / effects */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(79, 140, 255, 0.35);
+    --glow-blue: rgba(79, 140, 255, 0.20);
+    --glow-purple: rgba(139, 92, 246, 0.18);
+
+    /* Layout */
+    --content-width: 1200px;
+    --section-padding: clamp(5rem, 10vw, 9rem);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+
+    /* Motion */
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: 180ms var(--ease-premium);
+    --transition-normal: 350ms var(--ease-premium);
+}
+
+/* Base */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: var(--bg-primary);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 15% 10%, var(--glow-purple), transparent 28rem),
+        radial-gradient(circle at 85% 20%, var(--glow-blue), transparent 30rem),
+        var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Inter', sans-serif;
+}
+
+::selection {
+    background: rgba(79, 140, 255, 0.35);
+    color: var(--text-primary);
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
