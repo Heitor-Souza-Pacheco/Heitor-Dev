@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="CSS/animacao.css">
     <link rel="stylesheet" href="CSS/divisoes.css">
     <link rel="stylesheet" href="CSS/sectionSobre.css">
-    <link rel="stylesheet" href="CSS/contato.css">
     <link rel="stylesheet" href="CSS/responsivo.css">
     <link rel="stylesheet" href="CSS/v2-base.css">
     <link rel="stylesheet" href="CSS/v2-hero.css">
@@ -17,6 +16,7 @@
     <link rel="stylesheet" href="CSS/v2-experience.css">
     <link rel="stylesheet" href="CSS/v2-projects.css">
     <link rel="stylesheet" href="CSS/v2-about.css">
+    <link rel="stylesheet" href="CSS/v2-contact.css">
     <link rel="icon" href="assets/Icone.png">
 </head>
 <body>
@@ -28,8 +28,30 @@
         <div id="divSobre" class="divisao animar"><h1>Sobre mim</h1></div>
         <section id="sobre" data-color="#0000" class="sobreMim"><div class="fotoEu"><img src="assets/foto linkedIn.png" alt="Foto linkedIn"></div><div class="texto"><div class="textoSobre"><p id="paragrafo1" class="p1">Meu nome é Heitor e sou um estudante apaixonado pela informática e áreas de desenvolvimentos.</p><p id="paragrafo2" class="p2">Atualmente, estou no segundo ano do Ensino Médio Técnico no Colégio Cotemig, onde pude desenvolver minhas habilidades no desenvolvimento backend e frontend. Além disso, sou estágiario em desenvolvimento na Araújo, onde tenho muito contado com Spring Boot e SQL.</p><p id="paragrafo3" class="p3">Estou focado em cursos para sempre aprender mais sobre o desenvolvimento de sites modernos com ótima experiência e também no desenvolvimento de softwares.</p></div><div class="expContainer"><div class="educacao"><header class="cabecalho edu"><h1>Educação</h1></header><p class="educacaoTexto">2025 - 2027 Colégio Cotemig Informática</p></div><div class="experiencia"><header class="cabecalho exp"><h1>Experiência</h1></header><p class="expTexto">2026 - Estagio em desenvolvimento backend e SQL na Araújo</p></div><div class="conhecimentos"><header class="cabecalho con"><h1>Conhecimentos</h1></header><p class="conhecimentosTexto">Possuo conhecimentos em Python, HTML, CSS, JavaScript e C#, além de API rest</p></div></div></div></section>
         <section id="projetos" data-color="#0000" class="projects-v2-section"></section>
-        <div class="divisao2 animar"><h1>Contato</h1></div><section id="contato" data-color="#0000" class="contatoSection"><div class="info"><header class="infoTitulo hiden"><h2>Algum interesse? Estou sempre aberto para conversamos e para novas oportunidade.</h2></header><div class="infoContatos"><div class="email tituloAnima"><p class="ico">&#9993;</p><p>heitorpacheco2009@gmail.com</p></div><div class="telefone tituloAnima2"><p class="ico">&#9742;</p><p>+55 (31) 97512-3387</p></div></div><div class="infoLogo logoFinal hiden"><a href="https://github.com/Heitor-Souza-Pacheco"><img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt=""></a><a href="https://www.linkedin.com/in/heitor-souza-pacheco/"><img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt=""></a><a href="https://www.instagram.com/_.hei_tor/"><img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg?semt=ais_hybrid&w=740&q=80" alt=""></a></div></div><div class="inputContato hiden2"><div class="inputNome tituloAnima3"><input class="place" type="text" placeholder="Seu nome"></div><div class="inputEmail tituloAnima3"><input class="place" type="email" placeholder="Seu Email"></div><div class="mensagem tituloAnima3"><input type="text" placeholder="Sua mensagem"></div><div class="submitBotao hiden2"><button type="submit" class="botao"><p>Envie aqui</p></button></div></div></section>
+        <div class="divisao2 animar"><h1>Contato</h1></div>
+        <section id="contato" class="contact-v2-section">
+            <div class="contact-v2-container">
+                <div class="contact-v2-intro">
+                    <span class="contact-v2-label">CONTATO</span>
+                    <h2>Vamos transformar uma ideia em <span>algo real.</span></h2>
+                    <p>Estou aberto para conversar sobre projetos, oportunidades e novas experiências na área de tecnologia.</p>
+                    <div class="contact-v2-links">
+                        <a class="contact-v2-link" href="mailto:heitorpacheco2009@gmail.com">E-mail ↗</a>
+                        <a class="contact-v2-link" href="https://github.com/Heitor-Souza-Pacheco" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                        <a class="contact-v2-link" href="https://www.linkedin.com/in/heitor-souza-pacheco/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+                    </div>
+                </div>
+                <form class="contact-v2-form">
+                    <h3 class="contact-v2-form-title">Envie uma mensagem</h3>
+                    <div class="contact-v2-field"><label for="contact-name">NOME</label><input id="contact-name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required></div>
+                    <div class="contact-v2-field"><label for="contact-email">E-MAIL</label><input id="contact-email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" required></div>
+                    <div class="contact-v2-field"><label for="contact-message">MENSAGEM</label><textarea id="contact-message" name="message" placeholder="Conte um pouco sobre o que você tem em mente..." required></textarea></div>
+                    <button class="contact-v2-submit" type="submit">Enviar mensagem <span>↗</span></button>
+                    <p class="contact-v2-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
     </main>
-    <script src="script.js"></script><script src="hero.js"></script><script src="navbar.js"></script><script src="experience-v2.js"></script><script src="about-v2.js"></script><script src="projects-v2.js"></script>
+    <script src="script.js"></script><script src="hero.js"></script><script src="navbar.js"></script><script src="experience-v2.js"></script><script src="about-v2.js"></script><script src="projects-v2.js"></script><script src="contact-v2.js"></script>
 </body>
 </html>
