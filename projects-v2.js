@@ -43,14 +43,8 @@
 
         const animation = element.animate(
             [
-                {
-                    opacity: 0,
-                    transform: 'translate3d(0, 90px, 0) scale(.96)'
-                },
-                {
-                    opacity: 1,
-                    transform: 'translate3d(0, 0, 0) scale(1)'
-                }
+                { opacity: 0, transform: 'translate3d(0, 90px, 0) scale(.96)' },
+                { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
             ],
             {
                 duration: 950,
@@ -99,27 +93,44 @@
     }
 
     cards.forEach((card) => {
+        const revealLayer = card.querySelector('.project-v2-card-reveal');
+        if (!revealLayer) return;
+
         card.style.setProperty('--card-rotate-x', '0deg');
         card.style.setProperty('--card-rotate-y', '0deg');
-        card.style.setProperty('--mouse-x', '50%');
-        card.style.setProperty('--mouse-y', '0%');
 
-        card.addEventListener('pointermove', (event) => {
-            const rect = card.getBoundingClientRect();
-            const x = event.clientX - rect.left;
-            const y = event.clientY - rect.top;
+        const resetHover = () => {
+            card.style.setProperty('--card-rotate-x', '0deg');
+            card.style.setProperty('--card-rotate-y', '0deg');
+            revealLayer.style.setProperty('--mouse-x', '50%');
+            revealLayer.style.setProperty('--mouse-y', '50%');
+            card.classList.remove('is-hovering');
+        };
 
-            card.style.setProperty('--mouse-x', `${x}px`);
-            card.style.setProperty('--mouse-y', `${y}px`);
-            card.style.setProperty('--card-rotate-x', `${(0.5 - y / rect.height) * 5}deg`);
-            card.style.setProperty('--card-rotate-y', `${(x / rect.width - 0.5) * 7}deg`);
+        card.addEventListener('pointerenter', (event) => {
+            if (event.pointerType === 'touch') return;
             card.classList.add('is-hovering');
         });
 
-        card.addEventListener('pointerleave', () => {
-            card.style.setProperty('--card-rotate-x', '0deg');
-            card.style.setProperty('--card-rotate-y', '0deg');
-            card.classList.remove('is-hovering');
+        card.addEventListener('pointermove', (event) => {
+            if (event.pointerType === 'touch') return;
+
+            const rect = revealLayer.getBoundingClientRect();
+            const x = Math.min(Math.max(event.clientX - rect.left, 0), rect.width);
+            const y = Math.min(Math.max(event.clientY - rect.top, 0), rect.height);
+
+            const normalizedX = x / rect.width;
+            const normalizedY = y / rect.height;
+
+            revealLayer.style.setProperty('--mouse-x', `${x}px`);
+            revealLayer.style.setProperty('--mouse-y', `${y}px`);
+
+            card.style.setProperty('--card-rotate-x', `${(0.5 - normalizedY) * 4.5}deg`);
+            card.style.setProperty('--card-rotate-y', `${(normalizedX - 0.5) * 6}deg`);
+            card.classList.add('is-hovering');
         });
+
+        card.addEventListener('pointerleave', resetHover);
+        card.addEventListener('pointercancel', resetHover);
     });
 })();
