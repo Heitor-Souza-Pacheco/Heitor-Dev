@@ -27,12 +27,6 @@
 .projects-v2-description { max-width:360px; margin:0 0 4px; color:var(--text-secondary); font-size:.9rem; line-height:1.75; }
 .projects-v2-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 
-/*
-   O card é o elemento interativo.
-   A animação de entrada fica em um wrapper separado para que
-   o transform do reveal nunca possa entrar em conflito com o
-   transform 3D do hover.
-*/
 .project-v2-card {
     position:relative;
     display:flex;
@@ -45,9 +39,11 @@
     box-shadow:none;
     transform-style:preserve-3d;
     will-change:transform;
-    transition:transform 350ms var(--ease-premium), border-color 350ms ease, box-shadow 350ms ease;
+    transition:transform 350ms var(--ease-premium);
 }
 
+/* O reveal tem seu próprio elemento e seu próprio transform.
+   O card externo fica livre para o hover 3D. */
 .project-v2-card-reveal {
     position:relative;
     display:flex;
@@ -60,34 +56,42 @@
     background:rgba(13,17,28,.72);
     box-shadow:0 24px 70px rgba(0,0,0,.16);
     opacity:0;
-    transform:translate3d(0,80px,0) scale(.97);
+    transform:translate3d(0,90px,0) scale(.96);
     will-change:opacity,transform;
-    transition:opacity 900ms var(--ease-premium), transform 900ms var(--ease-premium), border-color 350ms ease, box-shadow 350ms ease;
 }
 
-/* A classe é aplicada pelo IntersectionObserver no CARD. */
-.project-v2-card.is-visible .project-v2-card-reveal {
-    opacity:1;
-    transform:translate3d(0,0,0) scale(1);
-    transition-delay:var(--project-delay,0ms);
+/* A entrada é uma keyframe própria: não depende do transform do hover. */
+.project-v2-card-reveal.reveal-visible {
+    animation: projectCardReveal 950ms var(--ease-premium) var(--project-delay,0ms) both;
 }
 
-/*
-   O hover controla somente o CARD externo.
-   Portanto ele não sobrescreve o transform da animação de entrada.
-*/
-.project-v2-card.is-visible.is-hovering {
-    transform:translate3d(0,-8px,0) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y)) scale(1.01);
-}
-
-.project-v2-card.is-visible.is-hovering .project-v2-card-reveal {
-    border-color:var(--border-highlight);
-    box-shadow:0 34px 95px rgba(0,0,0,.3);
+@keyframes projectCardReveal {
+    0% {
+        opacity:0;
+        transform:translate3d(0,90px,0) scale(.96);
+    }
+    60% {
+        opacity:1;
+    }
+    100% {
+        opacity:1;
+        transform:translate3d(0,0,0) scale(1);
+    }
 }
 
 @keyframes projectsHeaderReveal {
     from { opacity:0; transform:translate3d(0,45px,0); }
     to { opacity:1; transform:translate3d(0,0,0); }
+}
+
+/* Hover continua exclusivamente no card externo. */
+.project-v2-card.is-hovering {
+    transform:translate3d(0,-8px,0) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y)) scale(1.01);
+}
+
+.project-v2-card.is-hovering .project-v2-card-reveal {
+    border-color:var(--border-highlight);
+    box-shadow:0 34px 95px rgba(0,0,0,.3);
 }
 
 .project-v2-card::before {
@@ -159,8 +163,20 @@
     .project-v2-body { padding:23px; }
 }
 
+/* Movimento reduzido: mantém os elementos visíveis, sem deixá-los presos em opacity:0. */
 @media (prefers-reduced-motion:reduce) {
-    .project-v2-card-reveal,.projects-v2-header,.project-v2-media img,.project-v2-arrow,.project-v2-stack span { animation:none !important; transition:none !important; }
-    .project-v2-card-reveal,.projects-v2-header { opacity:1 !important; transform:none !important; }
-    .project-v2-card { transform:none !important; }
+    .project-v2-card-reveal,
+    .projects-v2-header,
+    .project-v2-media img,
+    .project-v2-arrow,
+    .project-v2-stack span {
+        animation:none !important;
+        transition:none !important;
+    }
+
+    .project-v2-card-reveal,
+    .projects-v2-header {
+        opacity:1 !important;
+        transform:none !important;
+    }
 }
