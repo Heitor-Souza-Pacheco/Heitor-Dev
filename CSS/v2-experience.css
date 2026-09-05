@@ -71,10 +71,10 @@
     background: linear-gradient(to bottom, var(--brand-blue), var(--border-subtle));
     transform: scaleY(0);
     transform-origin: top;
-    transition: transform 1.8s var(--ease-premium);
+    transition: transform 1.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.experience.visible .experience-timeline::before {
+.experience.experience-activated .experience-timeline::before {
     transform: scaleY(1);
 }
 
@@ -82,28 +82,11 @@
     position: relative;
     padding-left: 45px;
     margin-bottom: 70px;
-    opacity: 0;
-    transform: translate3d(0, 55px, 0);
-    transition: opacity 1.2s ease, transform 1.2s var(--ease-premium);
     will-change: opacity, transform;
 }
 
 .experience-item:last-child {
     margin-bottom: 0;
-}
-
-/* A classe é adicionada pelo observer do navbar.js. */
-.experience-item.is-visible {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-}
-
-.experience-item.is-visible:nth-child(1) {
-    transition-delay: 0.12s;
-}
-
-.experience-item.is-visible:nth-child(2) {
-    transition-delay: 0.32s;
 }
 
 .experience-marker {
@@ -118,14 +101,7 @@
     border-radius: 50%;
     background: var(--bg-primary);
     z-index: 2;
-    transform: scale(0.6);
-    opacity: 0;
-    transition: transform 0.6s var(--ease-premium), opacity 0.6s ease;
-}
-
-.experience.visible .experience-marker {
-    transform: scale(1);
-    opacity: 1;
+    will-change: opacity, transform;
 }
 
 .experience-marker span {
@@ -160,13 +136,13 @@
     transition: opacity 0.4s ease, transform 0.9s var(--ease-premium);
 }
 
-.experience.visible .experience-item:nth-child(1) .experience-card::before {
+.experience.experience-activated .experience-item:nth-child(1) .experience-card::before {
     opacity: 1;
     transform: scaleX(1);
     transition-delay: 0.45s;
 }
 
-.experience.visible .experience-item:nth-child(2) .experience-card::before {
+.experience.experience-activated .experience-item:nth-child(2) .experience-card::before {
     opacity: 1;
     transform: scaleX(1);
     transition-delay: 0.65s;
