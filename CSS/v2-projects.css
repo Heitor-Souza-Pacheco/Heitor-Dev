@@ -16,6 +16,14 @@
     justify-content: space-between;
     gap: 40px;
     margin-bottom: 60px;
+    opacity: 0;
+    transform: translate3d(0, 35px, 0);
+    transition: opacity 700ms ease, transform 850ms var(--ease-premium);
+}
+
+.projects-v2-header.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
 }
 
 .projects-v2-kicker {
@@ -66,7 +74,16 @@
     border-radius: var(--radius-md);
     background: rgba(13, 17, 28, 0.72);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.16);
-    transition: transform 500ms var(--ease-premium), border-color 350ms ease, box-shadow 500ms ease;
+    opacity: 0;
+    transform: translate3d(0, 55px, 0) scale(0.985);
+    transition: transform 700ms var(--ease-premium), opacity 700ms ease, border-color 350ms ease, box-shadow 500ms ease;
+    transition-delay: var(--project-delay, 0ms);
+    will-change: transform, opacity;
+}
+
+.project-v2-card.is-visible {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
 }
 
 .project-v2-card::before {
@@ -81,7 +98,7 @@
 }
 
 .project-v2-card:hover {
-    transform: translateY(-8px);
+    transform: translate3d(0, -8px, 0) scale(1);
     border-color: var(--border-highlight);
     box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28);
 }
@@ -307,5 +324,20 @@
 
     .project-v2-body {
         padding: 23px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .projects-v2-header,
+    .project-v2-card,
+    .project-v2-media img,
+    .project-v2-arrow {
+        transition: none;
+    }
+
+    .projects-v2-header,
+    .project-v2-card {
+        opacity: 1;
+        transform: none;
     }
 }
