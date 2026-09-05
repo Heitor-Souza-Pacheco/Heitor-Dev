@@ -36,32 +36,65 @@
     const cards = [...projectsSection.querySelectorAll('.project-v2-card')];
     const revealTargets = cards.map(card => card.querySelector('.project-v2-card-reveal')).filter(Boolean);
 
-    const reveal = (element) => {
-        requestAnimationFrame(() => element.classList.add('reveal-visible'));
+    const reveal = (element, delay = 0) => {
+        if (!element || element.dataset.revealed === 'true') return;
+
+        element.dataset.revealed = 'true';
+
+        const animation = element.animate(
+            [
+                {
+                    opacity: 0,
+                    transform: 'translate3d(0, 90px, 0) scale(.96)'
+                },
+                {
+                    opacity: 1,
+                    transform: 'translate3d(0, 0, 0) scale(1)'
+                }
+            ],
+            {
+                duration: 950,
+                delay,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                fill: 'both'
+            }
+        );
+
+        animation.finished.then(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            element.style.willChange = 'auto';
+        }).catch(() => {
+            element.style.opacity = '1';
+            element.style.transform = 'translate3d(0, 0, 0) scale(1)';
+        });
     };
 
     if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver((entries, observerRef) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
-                reveal(entry.target);
+
+                const delay = Number(entry.target.dataset.projectDelay || 0);
+                reveal(entry.target, delay);
                 observerRef.unobserve(entry.target);
             });
         }, {
             threshold: 0.01,
-            rootMargin: '0px 0px -18% 0px'
+            rootMargin: '0px 0px -12% 0px'
         });
 
         if (header) observer.observe(header);
+
         revealTargets.forEach((target, index) => {
-            target.style.setProperty('--project-delay', `${index * 180}ms`);
+            target.dataset.projectDelay = String(index * 180);
             observer.observe(target);
         });
     } else {
         if (header) reveal(header);
+
         revealTargets.forEach((target, index) => {
-            target.style.setProperty('--project-delay', `${index * 180}ms`);
-            reveal(target);
+            reveal(target, index * 180);
         });
     }
 
@@ -75,6 +108,7 @@
             const rect = card.getBoundingClientRect();
             const x = event.clientX - rect.left;
             const y = event.clientY - rect.top;
+
             card.style.setProperty('--mouse-x', `${x}px`);
             card.style.setProperty('--mouse-y', `${y}px`);
             card.style.setProperty('--card-rotate-x', `${(0.5 - y / rect.height) * 5}deg`);
