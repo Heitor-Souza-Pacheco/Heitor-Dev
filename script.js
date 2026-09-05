@@ -17,6 +17,7 @@
             if (!entry.isIntersecting) return;
 
             const className = entry.target.dataset.revealClass;
+
             if (className) {
                 entry.target.classList.add(className);
             }
@@ -47,30 +48,4 @@
 
         elementos.forEach((element) => dividerObserver.observe(element));
     }
-
-    // =====================================================
-    // V2 — CARREGAMENTO DOS MÓDULOS
-    // =====================================================
-
-    const loadScript = (src) => {
-        return new Promise((resolve, reject) => {
-            const existing = document.querySelector(`script[src="${src}"]`);
-
-            if (existing) {
-                resolve();
-                return;
-            }
-
-            const script = document.createElement('script');
-            script.src = src;
-            script.onload = resolve;
-            script.onerror = reject;
-            document.body.appendChild(script);
-        });
-    };
-
-    // A navbar precisa ser carregada antes das interações de experiência.
-    loadScript('navbar.js')
-        .then(() => loadScript('projects-v2.js'))
-        .catch((error) => console.error('Erro ao carregar módulos V2:', error));
 })();
