@@ -94,11 +94,42 @@
         </div>
     `;
 
-    projectsSection.querySelectorAll('.project-v2-card').forEach((card) => {
+    const cards = projectsSection.querySelectorAll('.project-v2-card');
+    const header = projectsSection.querySelector('.projects-v2-header');
+
+    cards.forEach((card, index) => {
+        card.style.setProperty('--project-delay', `${index * 140}ms`);
+
         card.addEventListener('pointermove', (event) => {
             const rect = card.getBoundingClientRect();
             card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
             card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
         });
     });
+
+    if (!('IntersectionObserver' in window)) {
+        header?.classList.add('is-visible');
+        cards.forEach((card) => card.classList.add('is-visible'));
+        return;
+    }
+
+    const projectsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (!entry.isIntersecting) {
+                return;
+            }
+
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -8% 0px'
+    });
+
+    if (header) {
+        projectsObserver.observe(header);
+    }
+
+    cards.forEach((card) => projectsObserver.observe(card));
 })();
