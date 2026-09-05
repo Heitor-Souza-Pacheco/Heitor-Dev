@@ -1,6 +1,5 @@
 (() => {
     const projectsSection = document.querySelector('#projetos');
-
     if (!projectsSection) return;
 
     const initializeProjects = () => {
@@ -31,43 +30,43 @@
             }
         ];
 
-        const cardMarkup = projects.map((project) => `
-            <article class="project-v2-card${project.featured ? ' featured' : ''}">
-                <a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Abrir repositório ${project.name}">
-                    <div class="project-v2-media">
-                        <img src="${project.image}" alt="Preview do projeto ${project.name}" loading="lazy">
-                        <span class="project-v2-index">${project.index}</span>
-                        <span class="project-v2-type">${project.type}</span>
-                    </div>
-                </a>
-                <div class="project-v2-body">
-                    <div class="project-v2-heading">
-                        <div><h3>${project.name}</h3><p>${project.role}</p></div>
-                        <a class="project-v2-arrow" href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${project.name}">↗</a>
-                    </div>
-                    <p class="project-v2-copy">${project.description}</p>
-                    <div class="project-v2-stack">${project.stack.map((technology) => `<span>${technology}</span>`).join('')}</div>
-                    <div class="project-v2-footer">
-                        <span class="project-v2-role">Projeto em destaque</span>
-                        <a class="project-v2-link" href="${project.repo}" target="_blank" rel="noopener noreferrer">Ver no GitHub ↗</a>
-                    </div>
-                </div>
-            </article>
-        `).join('');
-
         projectsSection.innerHTML = `
             <div class="projects-v2-header">
                 <div><span class="projects-v2-kicker">PROJETOS SELECIONADOS</span><h2 class="projects-v2-title">Construindo <span>soluções.</span></h2></div>
                 <p class="projects-v2-description">Uma seleção de projetos com foco em backend, APIs REST, segurança, persistência de dados e regras de negócio.</p>
             </div>
-            <div class="projects-v2-grid">${cardMarkup}</div>
+            <div class="projects-v2-grid">
+                ${projects.map((project) => `
+                    <article class="project-v2-card${project.featured ? ' featured' : ''}">
+                        <a href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Abrir repositório ${project.name}">
+                            <div class="project-v2-media">
+                                <img src="${project.image}" alt="Preview do projeto ${project.name}" loading="lazy">
+                                <span class="project-v2-index">${project.index}</span>
+                                <span class="project-v2-type">${project.type}</span>
+                            </div>
+                        </a>
+                        <div class="project-v2-body">
+                            <div class="project-v2-heading">
+                                <div><h3>${project.name}</h3><p>${project.role}</p></div>
+                                <a class="project-v2-arrow" href="${project.repo}" target="_blank" rel="noopener noreferrer" aria-label="Abrir ${project.name}">↗</a>
+                            </div>
+                            <p class="project-v2-copy">${project.description}</p>
+                            <div class="project-v2-stack">${project.stack.map((technology) => `<span>${technology}</span>`).join('')}</div>
+                            <div class="project-v2-footer">
+                                <span class="project-v2-role">Projeto em destaque</span>
+                                <a class="project-v2-link" href="${project.repo}" target="_blank" rel="noopener noreferrer">Ver no GitHub ↗</a>
+                            </div>
+                        </div>
+                    </article>
+                `).join('')}
+            </div>
         `;
 
-        const cards = projectsSection.querySelectorAll('.project-v2-card');
         const header = projectsSection.querySelector('.projects-v2-header');
+        const cards = [...projectsSection.querySelectorAll('.project-v2-card')];
 
         cards.forEach((card, index) => {
-            card.style.setProperty('--project-delay', `${index * 140}ms`);
+            card.style.setProperty('--project-delay', `${index * 180}ms`);
             card.addEventListener('pointermove', (event) => {
                 const rect = card.getBoundingClientRect();
                 card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
@@ -75,34 +74,38 @@
             });
         });
 
-        const showProjects = () => {
-            header?.classList.add('is-visible');
-            cards.forEach((card) => card.classList.add('is-visible'));
+        const reveal = () => {
+            if (projectsSection.dataset.revealed === 'true') return;
+            projectsSection.dataset.revealed = 'true';
+
+            // Força o navegador a registrar o estado inicial antes de liberar a transição.
+            void projectsSection.offsetHeight;
+
+            requestAnimationFrame(() => {
+                header?.classList.add('is-visible');
+                cards.forEach((card) => card.classList.add('is-visible'));
+            });
         };
 
         if (!('IntersectionObserver' in window)) {
-            showProjects();
+            reveal();
             return;
         }
 
-        // Um único observer controla toda a seção. Isso impede que cada
-        // card seja liberado em momentos diferentes antes de a seção entrar.
-        const projectsObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                showProjects();
-                observer.unobserve(entry.target);
-            });
+        const observer = new IntersectionObserver((entries) => {
+            if (entries.some((entry) => entry.isIntersecting)) {
+                reveal();
+                observer.disconnect();
+            }
         }, {
-            threshold: 0.08,
-            rootMargin: '0px 0px -10% 0px'
+            threshold: 0,
+            rootMargin: '0px 0px -5% 0px'
         });
 
-        projectsObserver.observe(projectsSection);
+        observer.observe(projectsSection);
     };
 
     const stylesheet = document.querySelector('link[data-projects-v2]');
-
     if (stylesheet) {
         if (stylesheet.sheet) initializeProjects();
         else stylesheet.addEventListener('load', initializeProjects, { once: true });
