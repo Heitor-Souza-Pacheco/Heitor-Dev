@@ -1,7 +1,8 @@
 (() => {
-    // ========================================
-    // REVEAL ON SCROLL — seções que ainda usam o sistema antigo
-    // ========================================
+    // =====================================================
+    // LEGACY REVEAL
+    // Mantido apenas para as seções que ainda não foram migradas.
+    // =====================================================
 
     const revealTargets = [
         { selector: '.hiden', className: 'show' },
@@ -13,12 +14,9 @@
 
     const revealObserver = new IntersectionObserver((entries, observerRef) => {
         entries.forEach((entry) => {
-            if (!entry.isIntersecting) {
-                return;
-            }
+            if (!entry.isIntersecting) return;
 
             const className = entry.target.dataset.revealClass;
-
             if (className) {
                 entry.target.classList.add(className);
             }
@@ -37,35 +35,42 @@
         });
     });
 
-    // ========================================
-    // DIVISORES LEGADOS
-    // Mantido apenas enquanto as seções antigas ainda existirem.
-    // ========================================
-
+    // Divisores que ainda pertencem ao layout antigo.
     const elementos = document.querySelectorAll('.animar');
 
     if (elementos.length) {
-        const observer = new IntersectionObserver((entries) => {
+        const dividerObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('ativo');
-                } else {
-                    entry.target.classList.remove('ativo');
-                }
+                entry.target.classList.toggle('ativo', entry.isIntersecting);
             });
         });
 
-        elementos.forEach((element) => observer.observe(element));
+        elementos.forEach((element) => dividerObserver.observe(element));
     }
 
-    // ========================================
-    // PROJETOS V2
-    // Carrega a vitrine backend depois da estrutura
-    // principal estar disponível no DOM.
-    // ========================================
+    // =====================================================
+    // V2 — CARREGAMENTO DOS MÓDULOS
+    // =====================================================
 
-    const projectsScript = document.createElement('script');
-    projectsScript.src = 'projects-v2.js';
-    projectsScript.defer = true;
-    document.body.appendChild(projectsScript);
+    const loadScript = (src) => {
+        return new Promise((resolve, reject) => {
+            const existing = document.querySelector(`script[src="${src}"]`);
+
+            if (existing) {
+                resolve();
+                return;
+            }
+
+            const script = document.createElement('script');
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.body.appendChild(script);
+        });
+    };
+
+    // A navbar precisa ser carregada antes das interações de experiência.
+    loadScript('navbar.js')
+        .then(() => loadScript('projects-v2.js'))
+        .catch((error) => console.error('Erro ao carregar módulos V2:', error));
 })();
