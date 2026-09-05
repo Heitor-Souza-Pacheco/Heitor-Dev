@@ -3,8 +3,6 @@
     if (!section) return;
 
     const intro = section.querySelector('.experience-intro');
-    const timeline = section.querySelector('.experience-timeline');
-    const line = timeline?.querySelector('::before');
     const items = [...section.querySelectorAll('.experience-item')];
     const markers = [...section.querySelectorAll('.experience-marker')];
 
@@ -27,8 +25,6 @@
         animation.finished.catch(() => {});
     };
 
-    // O estado inicial é aplicado antes do observer começar.
-    // Assim não dependemos de classes CSS concorrentes para esconder os elementos.
     if (!reducedMotion) {
         if (intro) {
             intro.style.opacity = '0';
@@ -44,66 +40,42 @@
             marker.style.opacity = '0';
             marker.style.transform = 'scale(.65)';
         });
+    } else {
+        section.classList.add('experience-activated');
     }
 
     const playReveal = () => {
         section.classList.add('experience-activated');
 
-        reveal(intro,
-            [
-                { opacity: 0, transform: 'translate3d(0, 40px, 0)' },
-                { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-            ],
-            { duration: 850, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
-        );
+        reveal(intro, [
+            { opacity: 0, transform: 'translate3d(0, 40px, 0)' },
+            { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+        ], {
+            duration: 850,
+            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+        });
 
         items.forEach((item, index) => {
-            reveal(item,
-                [
-                    { opacity: 0, transform: 'translate3d(0, 60px, 0)' },
-                    { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-                ],
-                {
-                    duration: 900,
-                    delay: 180 + index * 180,
-                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                }
-            );
+            reveal(item, [
+                { opacity: 0, transform: 'translate3d(0, 60px, 0)' },
+                { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+            ], {
+                duration: 900,
+                delay: 180 + index * 180,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+            });
         });
 
         markers.forEach((marker, index) => {
-            reveal(marker,
-                [
-                    { opacity: 0, transform: 'scale(.65)' },
-                    { opacity: 1, transform: 'scale(1)' }
-                ],
-                {
-                    duration: 550,
-                    delay: 420 + index * 180,
-                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                }
-            );
+            reveal(marker, [
+                { opacity: 0, transform: 'scale(.65)' },
+                { opacity: 1, transform: 'scale(1)' }
+            ], {
+                duration: 550,
+                delay: 420 + index * 180,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+            });
         });
-
-        const timelineLine = timeline?.querySelector('.experience-timeline-line');
-        if (timelineLine) {
-            if (reducedMotion) {
-                timelineLine.style.transform = 'scaleY(1)';
-            } else {
-                timelineLine.animate(
-                    [
-                        { transform: 'scaleY(0)' },
-                        { transform: 'scaleY(1)' }
-                    ],
-                    {
-                        duration: 1300,
-                        delay: 250,
-                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
-                        fill: 'both'
-                    }
-                );
-            }
-        }
     };
 
     if (!('IntersectionObserver' in window)) {
