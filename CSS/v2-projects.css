@@ -27,10 +27,32 @@
 .projects-v2-description { max-width:360px; margin:0 0 4px; color:var(--text-secondary); font-size:.9rem; line-height:1.75; }
 .projects-v2-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 
+/*
+   O card é o elemento interativo.
+   A animação de entrada fica em um wrapper separado para que
+   o transform do reveal nunca possa entrar em conflito com o
+   transform 3D do hover.
+*/
 .project-v2-card {
     position:relative;
     display:flex;
     min-height:530px;
+    flex-direction:column;
+    overflow:visible;
+    border:0;
+    border-radius:var(--radius-md);
+    background:transparent;
+    box-shadow:none;
+    transform-style:preserve-3d;
+    will-change:transform;
+    transition:transform 350ms var(--ease-premium), border-color 350ms ease, box-shadow 350ms ease;
+}
+
+.project-v2-card-reveal {
+    position:relative;
+    display:flex;
+    min-height:530px;
+    flex:1;
     flex-direction:column;
     overflow:hidden;
     border:1px solid var(--border-subtle);
@@ -39,25 +61,26 @@
     box-shadow:0 24px 70px rgba(0,0,0,.16);
     opacity:0;
     transform:translate3d(0,80px,0) scale(.97);
-    transform-style:preserve-3d;
     will-change:opacity,transform;
-    transition:opacity 900ms cubic-bezier(.22,1,.36,1), transform 900ms cubic-bezier(.22,1,.36,1), border-color 350ms ease, box-shadow 350ms ease;
+    transition:opacity 900ms var(--ease-premium), transform 900ms var(--ease-premium), border-color 350ms ease, box-shadow 350ms ease;
 }
 
-/*
-   A entrada agora usa transition, e não animation/keyframes.
-   Isso evita que o efeito de hover 3D substitua o transform da
-   animação de entrada enquanto o card está sendo revelado.
-*/
-.project-v2-card.is-visible {
+/* A classe é aplicada pelo IntersectionObserver no CARD. */
+.project-v2-card.is-visible .project-v2-card-reveal {
     opacity:1;
     transform:translate3d(0,0,0) scale(1);
     transition-delay:var(--project-delay,0ms);
 }
 
-/* O hover só assume o transform depois que o card terminou a entrada. */
+/*
+   O hover controla somente o CARD externo.
+   Portanto ele não sobrescreve o transform da animação de entrada.
+*/
 .project-v2-card.is-visible.is-hovering {
     transform:translate3d(0,-8px,0) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y)) scale(1.01);
+}
+
+.project-v2-card.is-visible.is-hovering .project-v2-card-reveal {
     border-color:var(--border-highlight);
     box-shadow:0 34px 95px rgba(0,0,0,.3);
 }
@@ -70,12 +93,13 @@
 .project-v2-card::before {
     content:'';
     position:absolute;
-    inset:0;
+    inset:-1px;
     pointer-events:none;
+    border-radius:var(--radius-md);
     background:radial-gradient(circle at var(--mouse-x,50%) var(--mouse-y,0%),rgba(79,140,255,.14),transparent 28%);
     opacity:0;
     transition:opacity 400ms ease;
-    z-index:2;
+    z-index:5;
 }
 
 .project-v2-card::after {
@@ -83,17 +107,18 @@
     position:absolute;
     inset:0;
     pointer-events:none;
-    border-radius:inherit;
+    border-radius:var(--radius-md);
     background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.07) 50%,transparent 80%);
     transform:translateX(-120%);
     transition:transform 700ms cubic-bezier(.22,1,.36,1);
-    z-index:4;
+    z-index:6;
 }
 
 .project-v2-card:hover::before { opacity:1; }
 .project-v2-card:hover::after { transform:translateX(120%); }
 
 .project-v2-card.featured { grid-column:span 2; min-height:600px; }
+.project-v2-card.featured .project-v2-card-reveal { min-height:600px; }
 .project-v2-media { position:relative; height:245px; overflow:hidden; border-bottom:1px solid var(--border-subtle); background:var(--bg-secondary); }
 .project-v2-card.featured .project-v2-media { height:310px; }
 .project-v2-media::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,transparent 45%,rgba(7,10,18,.78)); pointer-events:none; }
@@ -122,17 +147,20 @@
     .projects-v2-header { display:block; margin-bottom:40px; }
     .projects-v2-description { margin-top:22px; }
     .projects-v2-grid { grid-template-columns:1fr; }
-    .project-v2-card.featured { grid-column:auto; }
+    .project-v2-card.featured { grid-column:auto; min-height:530px; }
+    .project-v2-card.featured .project-v2-card-reveal { min-height:530px; }
 }
 
 @media (max-width:520px) {
     #projetos.projects-v2-section { padding:85px 0; }
     .project-v2-media,.project-v2-card.featured .project-v2-media { height:210px; }
-    .project-v2-card { min-height:500px; }
+    .project-v2-card,.project-v2-card-reveal { min-height:500px; }
+    .project-v2-card.featured,.project-v2-card.featured .project-v2-card-reveal { min-height:500px; }
     .project-v2-body { padding:23px; }
 }
 
 @media (prefers-reduced-motion:reduce) {
-    .project-v2-card,.projects-v2-header,.project-v2-media img,.project-v2-arrow,.project-v2-stack span { animation:none !important; transition:none !important; }
-    .project-v2-card,.projects-v2-header { opacity:1 !important; transform:none !important; }
+    .project-v2-card-reveal,.projects-v2-header,.project-v2-media img,.project-v2-arrow,.project-v2-stack span { animation:none !important; transition:none !important; }
+    .project-v2-card-reveal,.projects-v2-header { opacity:1 !important; transform:none !important; }
+    .project-v2-card { transform:none !important; }
 }
