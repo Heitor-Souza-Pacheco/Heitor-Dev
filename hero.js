@@ -3,10 +3,6 @@
 
     if (!hero) return;
 
-    // =====================================================
-    // GRADE INTERATIVA
-    // =====================================================
-
     const heroGlow = hero.querySelector('.hero-glow');
 
     hero.addEventListener('pointermove', (event) => {
@@ -23,17 +19,10 @@
         }
     });
 
-    // =====================================================
-    // STACKS FLUTUANTES
-    // =====================================================
-
-    const stack = hero.querySelector('.hero-tech-stack');
-
-    // As stacks fazem parte da Hero V2 e não devem depender
-    // de HTML legado para existir.
-    if (!hero.querySelector('.hero-floating-tech')) {
+    // Stacks flutuantes da Hero V2.
+    if (!hero.querySelector('.hero-tech')) {
         const floatingTech = document.createElement('div');
-        floatingTech.className = 'hero-floating-tech';
+        floatingTech.className = 'hero-tech';
         floatingTech.setAttribute('aria-hidden', 'true');
 
         const technologies = [
