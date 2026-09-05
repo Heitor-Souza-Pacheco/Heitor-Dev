@@ -90,42 +90,56 @@
     const header = projectsSection.querySelector('.projects-v2-header');
     const cards = [...projectsSection.querySelectorAll('.project-v2-card')];
 
+    const revealObserver = 'IntersectionObserver' in window
+        ? new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            });
+        }, {
+            threshold: 0.08,
+            rootMargin: '0px 0px -10% 0px'
+        })
+        : null;
+
+    if (header) {
+        if (revealObserver) revealObserver.observe(header);
+        else header.classList.add('is-visible');
+    }
+
     cards.forEach((card, index) => {
         card.style.setProperty('--project-delay', `${index * 180}ms`);
+        card.style.setProperty('--card-rotate-x', '0deg');
+        card.style.setProperty('--card-rotate-y', '0deg');
+        card.style.setProperty('--mouse-x', '50%');
+        card.style.setProperty('--mouse-y', '0%');
+
+        if (revealObserver) revealObserver.observe(card);
+        else card.classList.add('is-visible');
 
         card.addEventListener('pointermove', (event) => {
             const rect = card.getBoundingClientRect();
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
 
-            card.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`);
-            card.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);
+            const percentX = x / rect.width;
+            const percentY = y / rect.height;
+
+            const rotateY = (percentX - 0.5) * 7;
+            const rotateX = (0.5 - percentY) * 5;
+
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            card.style.setProperty('--card-rotate-x', `${rotateX}deg`);
+            card.style.setProperty('--card-rotate-y', `${rotateY}deg`);
+            card.classList.add('is-hovering');
         });
-    });
 
-    // Cada elemento possui seu próprio observer.
-    // O card só inicia sua animação quando ele mesmo entra na viewport.
-    if (!('IntersectionObserver' in window)) {
-        header?.classList.add('is-visible');
-        cards.forEach((card) => card.classList.add('is-visible'));
-        return;
-    }
-
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target);
+        card.addEventListener('pointerleave', () => {
+            card.style.setProperty('--card-rotate-x', '0deg');
+            card.style.setProperty('--card-rotate-y', '0deg');
+            card.classList.remove('is-hovering');
         });
-    }, {
-        threshold: 0.08,
-        rootMargin: '0px 0px -10% 0px'
-    });
-
-    if (header) {
-        revealObserver.observe(header);
-    }
-
-    cards.forEach((card) => {
-        revealObserver.observe(card);
     });
 })();
