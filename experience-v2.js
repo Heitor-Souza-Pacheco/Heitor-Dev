@@ -9,62 +9,93 @@
         const items = [...section.querySelectorAll('.experience-item')];
         const markers = [...section.querySelectorAll('.experience-marker')];
         const detailsButton = section.querySelector('.experience-details-button');
-        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        if (!reducedMotion) section.classList.add('experience-reveal-pending');
 
         const animate = (element, keyframes, options) => {
-            if (!element) return;
-            if (reducedMotion) {
-                element.style.opacity = '1';
-                element.style.transform = 'none';
-                return;
-            }
-            const animation = element.animate(keyframes, { fill: 'both', ...options });
+            if (!element) return null;
+
+            const animation = element.animate(keyframes, {
+                fill: 'both',
+                ...options
+            });
+
             animation.finished.catch(() => {});
+            return animation;
         };
 
         const playReveal = () => {
             if (section.dataset.experienceRevealed === 'true') return;
+
             section.dataset.experienceRevealed = 'true';
             section.classList.add('experience-activated');
 
-            animate(intro, [
-                { opacity: 0, transform: 'translate3d(0, 45px, 0)' },
-                { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-            ], { duration: 950, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+            // Aguarda dois frames para garantir que o estado inicial
+            // definido pelo CSS foi pintado antes de iniciar a animação.
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    animate(intro, [
+                        {
+                            opacity: 0,
+                            transform: 'translate3d(0, 45px, 0)'
+                        },
+                        {
+                            opacity: 1,
+                            transform: 'translate3d(0, 0, 0)'
+                        }
+                    ], {
+                        duration: 1000,
+                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+                    });
 
-            items.forEach((item, index) => {
-                animate(item, [
-                    { opacity: 0, transform: 'translate3d(0, 75px, 0)' },
-                    { opacity: 1, transform: 'translate3d(0, 0, 0)' }
-                ], {
-                    duration: 1000,
-                    delay: 180 + index * 220,
-                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                });
-            });
+                    items.forEach((item, index) => {
+                        animate(item, [
+                            {
+                                opacity: 0,
+                                transform: 'translate3d(0, 75px, 0)'
+                            },
+                            {
+                                opacity: 1,
+                                transform: 'translate3d(0, 0, 0)'
+                            }
+                        ], {
+                            duration: 1050,
+                            delay: 220 + index * 260,
+                            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+                        });
+                    });
 
-            markers.forEach((marker, index) => {
-                animate(marker, [
-                    { opacity: 0, transform: 'scale(.55)' },
-                    { opacity: 1, transform: 'scale(1)' }
-                ], {
-                    duration: 600,
-                    delay: 450 + index * 220,
-                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+                    markers.forEach((marker, index) => {
+                        animate(marker, [
+                            {
+                                opacity: 0,
+                                transform: 'scale(.55)'
+                            },
+                            {
+                                opacity: 1,
+                                transform: 'scale(1)'
+                            }
+                        ], {
+                            duration: 650,
+                            delay: 500 + index * 260,
+                            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
+                        });
+                    });
                 });
             });
         };
 
-        if (reducedMotion) {
-            playReveal();
-        } else if ('IntersectionObserver' in window) {
+        if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries, observerRef) => {
-                if (!entries.some(entry => entry.isIntersecting)) return;
+                const visible = entries.some(entry => entry.isIntersecting);
+
+                if (!visible) return;
+
                 playReveal();
                 observerRef.disconnect();
-            }, { threshold: 0.01, rootMargin: '0px 0px -12% 0px' });
+            }, {
+                threshold: 0,
+                rootMargin: '0px 0px -8% 0px'
+            });
+
             observer.observe(section);
         } else {
             playReveal();
@@ -74,8 +105,10 @@
             const closeModal = () => {
                 const modal = document.querySelector('.experience-modal');
                 if (!modal) return;
+
                 modal.classList.remove('is-open');
                 document.body.classList.remove('experience-modal-open');
+
                 setTimeout(() => modal.remove(), 250);
             };
 
@@ -107,17 +140,21 @@
 
                 document.body.appendChild(modal);
                 document.body.classList.add('experience-modal-open');
-                requestAnimationFrame(() => modal.classList.add('is-open'));
+
+                requestAnimationFrame(() => {
+                    modal.classList.add('is-open');
+                });
 
                 modal.querySelector('.experience-modal-close').addEventListener('click', closeModal);
                 modal.querySelector('[data-close-modal]').addEventListener('click', closeModal);
 
                 const onKeydown = event => {
-                    if (event.key === 'Escape') {
-                        closeModal();
-                        document.removeEventListener('keydown', onKeydown);
-                    }
+                    if (event.key !== 'Escape') return;
+
+                    closeModal();
+                    document.removeEventListener('keydown', onKeydown);
                 };
+
                 document.addEventListener('keydown', onKeydown);
             });
         }
