@@ -22,14 +22,8 @@
         const animateReveal = ({ element, delay, y }) => {
             element.animate(
                 [
-                    {
-                        opacity: 0,
-                        transform: `translate3d(0, ${y}px, 0)`
-                    },
-                    {
-                        opacity: 1,
-                        transform: 'translate3d(0, 0, 0)'
-                    }
+                    { opacity: 0, transform: `translate3d(0, ${y}px, 0)` },
+                    { opacity: 1, transform: 'translate3d(0, 0, 0)' }
                 ],
                 {
                     duration: 1000,
@@ -40,7 +34,7 @@
             );
         };
 
-        const animateMarker = (marker, delay) => {
+        const animateMarker = (marker) => {
             marker.animate(
                 [
                     { opacity: 0, transform: 'scale(.55)' },
@@ -48,7 +42,6 @@
                 ],
                 {
                     duration: 650,
-                    delay,
                     easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
                     fill: 'both'
                 }
@@ -56,44 +49,29 @@
         };
 
         if ('IntersectionObserver' in window) {
-            const observer = new IntersectionObserver((entries, observerRef) => {
+            const revealObserver = new IntersectionObserver((entries, observerRef) => {
                 entries.forEach((entry) => {
                     if (!entry.isIntersecting) return;
 
-                    const target = entry.target;
-                    const config = revealTargets.find(item => item.element === target);
+                    const target = revealTargets.find(item => item.element === entry.target);
+                    if (!target) return;
 
-                    if (config) {
-                        animateReveal(config);
-                    }
-
-                    observerRef.unobserve(target);
+                    section.classList.add('experience-activated');
+                    animateReveal(target);
+                    observerRef.unobserve(entry.target);
                 });
             }, {
                 threshold: 0.12,
                 rootMargin: '0px 0px -8% 0px'
             });
 
-            revealTargets.forEach(target => observer.observe(target.element));
+            revealTargets.forEach(target => revealObserver.observe(target.element));
 
-            markers.forEach((marker, index) => {
-                observer.observe(marker);
-                marker.dataset.experienceMarkerDelay = String(index * 180);
-            });
-        } else {
-            revealTargets.forEach(animateReveal);
-            markers.forEach((marker, index) => animateMarker(marker, index * 180));
-        }
-
-        // Os marcadores possuem observer separado para não depender
-        // da animação dos cards.
-        if ('IntersectionObserver' in window) {
             const markerObserver = new IntersectionObserver((entries, observerRef) => {
                 entries.forEach((entry) => {
                     if (!entry.isIntersecting) return;
 
-                    const index = markers.indexOf(entry.target);
-                    animateMarker(entry.target, index * 180);
+                    animateMarker(entry.target);
                     observerRef.unobserve(entry.target);
                 });
             }, {
@@ -102,6 +80,10 @@
             });
 
             markers.forEach(marker => markerObserver.observe(marker));
+        } else {
+            section.classList.add('experience-activated');
+            revealTargets.forEach(animateReveal);
+            markers.forEach(animateMarker);
         }
 
         if (detailsButton) {
