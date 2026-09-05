@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: clamp(100px, 12vw, 170px) 0;
     background: transparent;
+    perspective: 1200px;
 }
 
 .projects-v2-header {
@@ -70,11 +71,22 @@
     box-shadow: 0 24px 70px rgba(0, 0, 0, .16);
     opacity: 0;
     transform: translate3d(0, 80px, 0) scale(.97);
+    transform-style: preserve-3d;
     will-change: opacity, transform;
+    transition:
+        transform 180ms cubic-bezier(.22, 1, .36, 1),
+        border-color 350ms ease,
+        box-shadow 350ms ease;
 }
 
 .project-v2-card.is-visible {
     animation: projectCardReveal 1000ms var(--ease-premium) var(--project-delay, 0ms) both;
+}
+
+.project-v2-card.is-hovering {
+    transform: translate3d(0, -8px, 0) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y)) scale(1.01);
+    border-color: var(--border-highlight);
+    box-shadow: 0 34px 95px rgba(0, 0, 0, .3);
 }
 
 @keyframes projectsHeaderReveal {
@@ -82,7 +94,6 @@
         opacity: 0;
         transform: translate3d(0, 45px, 0);
     }
-
     to {
         opacity: 1;
         transform: translate3d(0, 0, 0);
@@ -94,11 +105,9 @@
         opacity: 0;
         transform: translate3d(0, 80px, 0) scale(.97);
     }
-
     65% {
         opacity: 1;
     }
-
     100% {
         opacity: 1;
         transform: translate3d(0, 0, 0) scale(1);
@@ -110,20 +119,30 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(79, 140, 255, .12), transparent 28%);
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(79, 140, 255, .14), transparent 28%);
     opacity: 0;
     transition: opacity 400ms ease;
     z-index: 2;
 }
 
-.project-v2-card:hover {
-    transform: translate3d(0, -8px, 0) scale(1);
-    border-color: var(--border-highlight);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, .28);
+.project-v2-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background: linear-gradient(120deg, transparent 20%, rgba(255, 255, 255, .07) 50%, transparent 80%);
+    transform: translateX(-120%);
+    transition: transform 700ms cubic-bezier(.22, 1, .36, 1);
+    z-index: 4;
 }
 
 .project-v2-card:hover::before {
     opacity: 1;
+}
+
+.project-v2-card:hover::after {
+    transform: translateX(120%);
 }
 
 .project-v2-card.featured {
@@ -267,11 +286,15 @@
     color: var(--text-secondary);
     font-family: 'Space Grotesk', sans-serif;
     font-size: .62rem;
-    transition: color 250ms ease, border-color 250ms ease, background 250ms ease;
+    transition: color 250ms ease, border-color 250ms ease, background 250ms ease, transform 250ms ease;
 }
 
 .project-v2-card:hover .project-v2-stack span {
     border-color: rgba(79, 140, 255, .2);
+}
+
+.project-v2-card:hover .project-v2-stack span:nth-child(odd) {
+    transform: translateY(-2px);
 }
 
 .project-v2-footer {
@@ -343,5 +366,16 @@
 
     .project-v2-body {
         padding: 23px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-v2-card,
+    .projects-v2-header,
+    .project-v2-media img,
+    .project-v2-arrow,
+    .project-v2-stack span {
+        animation: none !important;
+        transition: none !important;
     }
 }
