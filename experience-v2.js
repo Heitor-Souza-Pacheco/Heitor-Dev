@@ -10,95 +10,98 @@
         const markers = [...section.querySelectorAll('.experience-marker')];
         const detailsButton = section.querySelector('.experience-details-button');
 
-        const animate = (element, keyframes, options) => {
-            if (!element) return null;
+        const revealTargets = [
+            { element: intro, delay: 0, y: 45 },
+            ...items.map((element, index) => ({
+                element,
+                delay: index * 180,
+                y: 75
+            }))
+        ].filter(target => target.element);
 
-            const animation = element.animate(keyframes, {
-                fill: 'both',
-                ...options
-            });
-
-            animation.finished.catch(() => {});
-            return animation;
+        const animateReveal = ({ element, delay, y }) => {
+            element.animate(
+                [
+                    {
+                        opacity: 0,
+                        transform: `translate3d(0, ${y}px, 0)`
+                    },
+                    {
+                        opacity: 1,
+                        transform: 'translate3d(0, 0, 0)'
+                    }
+                ],
+                {
+                    duration: 1000,
+                    delay,
+                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                    fill: 'both'
+                }
+            );
         };
 
-        const playReveal = () => {
-            if (section.dataset.experienceRevealed === 'true') return;
-
-            section.dataset.experienceRevealed = 'true';
-            section.classList.add('experience-activated');
-
-            // Aguarda dois frames para garantir que o estado inicial
-            // definido pelo CSS foi pintado antes de iniciar a animação.
-            requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                    animate(intro, [
-                        {
-                            opacity: 0,
-                            transform: 'translate3d(0, 45px, 0)'
-                        },
-                        {
-                            opacity: 1,
-                            transform: 'translate3d(0, 0, 0)'
-                        }
-                    ], {
-                        duration: 1000,
-                        easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                    });
-
-                    items.forEach((item, index) => {
-                        animate(item, [
-                            {
-                                opacity: 0,
-                                transform: 'translate3d(0, 75px, 0)'
-                            },
-                            {
-                                opacity: 1,
-                                transform: 'translate3d(0, 0, 0)'
-                            }
-                        ], {
-                            duration: 1050,
-                            delay: 220 + index * 260,
-                            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                        });
-                    });
-
-                    markers.forEach((marker, index) => {
-                        animate(marker, [
-                            {
-                                opacity: 0,
-                                transform: 'scale(.55)'
-                            },
-                            {
-                                opacity: 1,
-                                transform: 'scale(1)'
-                            }
-                        ], {
-                            duration: 650,
-                            delay: 500 + index * 260,
-                            easing: 'cubic-bezier(0.22, 1, 0.36, 1)'
-                        });
-                    });
-                });
-            });
+        const animateMarker = (marker, delay) => {
+            marker.animate(
+                [
+                    { opacity: 0, transform: 'scale(.55)' },
+                    { opacity: 1, transform: 'scale(1)' }
+                ],
+                {
+                    duration: 650,
+                    delay,
+                    easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                    fill: 'both'
+                }
+            );
         };
 
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries, observerRef) => {
-                const visible = entries.some(entry => entry.isIntersecting);
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
 
-                if (!visible) return;
+                    const target = entry.target;
+                    const config = revealTargets.find(item => item.element === target);
 
-                playReveal();
-                observerRef.disconnect();
+                    if (config) {
+                        animateReveal(config);
+                    }
+
+                    observerRef.unobserve(target);
+                });
             }, {
-                threshold: 0,
+                threshold: 0.12,
                 rootMargin: '0px 0px -8% 0px'
             });
 
-            observer.observe(section);
+            revealTargets.forEach(target => observer.observe(target.element));
+
+            markers.forEach((marker, index) => {
+                observer.observe(marker);
+                marker.dataset.experienceMarkerDelay = String(index * 180);
+            });
         } else {
-            playReveal();
+            revealTargets.forEach(animateReveal);
+            markers.forEach((marker, index) => animateMarker(marker, index * 180));
+        }
+
+        // Os marcadores possuem observer separado para não depender
+        // da animação dos cards.
+        if ('IntersectionObserver' in window) {
+            const markerObserver = new IntersectionObserver((entries, observerRef) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    const index = markers.indexOf(entry.target);
+                    animateMarker(entry.target, index * 180);
+                    observerRef.unobserve(entry.target);
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px 0px -8% 0px'
+            });
+
+            markers.forEach(marker => markerObserver.observe(marker));
         }
 
         if (detailsButton) {
@@ -108,7 +111,6 @@
 
                 modal.classList.remove('is-open');
                 document.body.classList.remove('experience-modal-open');
-
                 setTimeout(() => modal.remove(), 250);
             };
 
@@ -141,16 +143,13 @@
                 document.body.appendChild(modal);
                 document.body.classList.add('experience-modal-open');
 
-                requestAnimationFrame(() => {
-                    modal.classList.add('is-open');
-                });
+                requestAnimationFrame(() => modal.classList.add('is-open'));
 
                 modal.querySelector('.experience-modal-close').addEventListener('click', closeModal);
                 modal.querySelector('[data-close-modal]').addEventListener('click', closeModal);
 
                 const onKeydown = event => {
                     if (event.key !== 'Escape') return;
-
                     closeModal();
                     document.removeEventListener('keydown', onKeydown);
                 };
