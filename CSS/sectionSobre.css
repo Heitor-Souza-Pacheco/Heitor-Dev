@@ -213,43 +213,6 @@
     line-height: 1.6;
 }
 
-.sobreMim .hiden,
-.sobreMim .hiden2,
-.sobreMim .tituloAnima2 {
-    opacity: 0;
-    filter: blur(0);
-    transition: opacity 0.9s ease, transform 0.9s var(--ease-premium);
-    will-change: opacity, transform;
-}
-
-.sobreMim .hiden {
-    transform: translate3d(-45px, 0, 0);
-}
-
-.sobreMim .hiden2 {
-    transform: translate3d(45px, 0, 0);
-}
-
-.sobreMim .tituloAnima2 {
-    transform: translate3d(0, 35px, 0);
-}
-
-.sobreMim .hiden.show,
-.sobreMim .hiden2.show,
-.sobreMim .tituloAnima2.tituloAnimaShow {
-    opacity: 1;
-    filter: blur(0);
-    transform: translate3d(0, 0, 0);
-}
-
-.sobreMim .expContainer > *:nth-child(2) {
-    transition-delay: 120ms;
-}
-
-.sobreMim .expContainer > *:nth-child(3) {
-    transition-delay: 240ms;
-}
-
 @media (max-width: 900px) {
     .sobreMim {
         grid-template-columns: 1fr;
