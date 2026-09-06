@@ -1,0 +1,120 @@
+/* V2 POLISH: responsividade e acessibilidade sem alterar reveals, hovers ou modais. */
+
+.hero-tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 22px;
+}
+
+.hero-tech-stack span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.025);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1;
+    transition: transform 0.25s var(--ease-premium), color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.hero-tech-stack span::before {
+    content: "◆";
+    color: var(--brand-blue);
+    font-size: 0.42rem;
+}
+
+.hero-tech-stack span:hover {
+    transform: translateY(-2px);
+    color: var(--text-primary);
+    border-color: var(--border-highlight);
+    background: rgba(79, 140, 255, 0.06);
+}
+
+:where(a, button, input, textarea):focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .hero-content {
+        width: min(760px, 88%);
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 70px;
+    }
+
+    .hero-title {
+        font-size: clamp(3.2rem, 10vw, 5.5rem);
+    }
+
+    .hero-tech {
+        opacity: 0.7;
+        transform: scale(0.9);
+        transform-origin: center right;
+    }
+}
+
+@media (max-width: 700px) {
+    .hero-v2 {
+        min-height: 100svh;
+    }
+
+    .hero-content {
+        width: min(92%, 560px);
+        padding-top: 65px;
+    }
+
+    .hero-eyebrow {
+        margin-top: 2rem;
+        font-size: 0.68rem;
+    }
+
+    .hero-title {
+        font-size: clamp(2.9rem, 13vw, 4.5rem);
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .hero-actions {
+        flex-wrap: wrap;
+    }
+
+    .hero-tech {
+        display: none;
+    }
+
+    .scroll-indicator {
+        bottom: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .hero-content {
+        padding-top: 55px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.65rem, 14vw, 3.6rem);
+    }
+
+    .hero-button {
+        width: 100%;
+    }
+
+    .hero-tech-stack {
+        gap: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-tech-stack span {
+        transition: none;
+    }
+}
