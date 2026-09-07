@@ -1,4 +1,4 @@
-/* V2 POLISH: responsividade e acessibilidade sem alterar reveals, hovers ou modais. */
+/* V2 POLISH: responsividade, acessibilidade e detalhes finais sem alterar reveals ou hovers existentes. */
 
 .hero-tech-stack {
     display: flex;
@@ -38,6 +38,39 @@
 :where(a, button, input, textarea):focus-visible {
     outline: 2px solid var(--brand-blue);
     outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 2000;
+    padding: 10px 14px;
+    border: 1px solid var(--border-highlight);
+    border-radius: 9px;
+    background: var(--bg-surface, #0b1020);
+    color: var(--text-primary, #fff);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    text-decoration: none;
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+}
+
+.skip-link:focus-visible {
+    transform: translateY(0);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 @media (max-width: 900px) {
@@ -114,7 +147,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-tech-stack span {
+    .hero-tech-stack span,
+    .skip-link {
         transition: none;
     }
 }
