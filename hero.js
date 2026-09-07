@@ -44,4 +44,61 @@
 
         hero.appendChild(floatingTech);
     }
+
+    const revealElements = [
+        ['.hero-eyebrow', 120],
+        ['.hero-title', 260],
+        ['.hero-description', 400],
+        ['.hero-tech-stack', 540],
+        ['.hero-actions', 680]
+    ];
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    revealElements.forEach(([selector, delay]) => {
+        const element = hero.querySelector(selector);
+        if (!element) return;
+
+        if (prefersReducedMotion) {
+            element.style.opacity = '1';
+            element.style.transform = 'none';
+            return;
+        }
+
+        element.animate(
+            [
+                { opacity: 0, transform: 'translate3d(0, 32px, 0)' },
+                { opacity: 1, transform: 'translate3d(0, 0, 0)' }
+            ],
+            {
+                duration: 850,
+                delay,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                fill: 'both'
+            }
+        );
+    });
+
+    const techCards = hero.querySelectorAll('.tech-card');
+    const techDelays = [520, 670, 820, 970];
+
+    techCards.forEach((card, index) => {
+        if (prefersReducedMotion) {
+            card.style.opacity = '1';
+            return;
+        }
+
+        card.animate(
+            [
+                { opacity: 0, transform: 'translate3d(0, 24px, 0) scale(0.96)' },
+                { opacity: 1, transform: 'translate3d(0, 0, 0) scale(1)' }
+            ],
+            {
+                duration: 800,
+                delay: techDelays[index] ?? 520,
+                easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+                fill: 'both'
+            }
+        );
+    });
 })();
