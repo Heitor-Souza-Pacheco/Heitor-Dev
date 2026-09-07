@@ -14,8 +14,11 @@
         hero.style.setProperty('--mouse-y', `${y}px`);
 
         if (heroGlow) {
-            heroGlow.style.setProperty('--glow-x', `${x}px`);
-            heroGlow.style.setProperty('--glow-y', `${y}px`);
+            const baseX = rect.width * 0.70;
+            const baseY = rect.height * 0.45;
+
+            heroGlow.style.setProperty('--glow-dx', `${x - baseX}px`);
+            heroGlow.style.setProperty('--glow-dy', `${y - baseY}px`);
         }
     }, { passive: true });
 
