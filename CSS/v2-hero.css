@@ -2,25 +2,13 @@
     position: relative;
     min-height: 100vh;
     width: 100%;
-
     display: flex;
     align-items: center;
-
     overflow: hidden;
-
     background:
-        radial-gradient(
-            circle at 70% 45%,
-            rgba(79, 140, 255, 0.10),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 30% 70%,
-            rgba(139, 92, 246, 0.08),
-            transparent 28%
-        ),
+        radial-gradient(circle at 70% 45%, rgba(79, 140, 255, 0.10), transparent 30%),
+        radial-gradient(circle at 30% 70%, rgba(139, 92, 246, 0.08), transparent 28%),
         var(--color-bg);
-
     isolation: isolate;
 }
 
@@ -50,15 +38,15 @@
 
 .hero-glow {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 70%;
+    top: 45%;
     width: 500px;
     height: 500px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(79, 140, 255, 0.14), rgba(139, 92, 246, 0.06), transparent 70%);
     filter: blur(25px);
     pointer-events: none;
-    transform: translate3d(calc(var(--glow-x, 70%) - 50%), calc(var(--glow-y, 45%) - 50%), 0);
+    transform: translate3d(calc(-50% + var(--glow-dx, 0px)), calc(-50% + var(--glow-dy, 0px)), 0);
     will-change: transform;
 }
 
@@ -273,6 +261,7 @@
 }
 
 @media (max-width: 700px) {
+    .hero-v2 { min-height: 100svh; }
     .hero-content { width: min(92%, 560px); margin-left: auto; margin-right: auto; padding-top: 65px; }
     .hero-eyebrow { margin-top: 2rem; font-size: 0.68rem; }
     .hero-title { font-size: clamp(2.9rem, 13vw, 4.5rem); }
