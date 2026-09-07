@@ -286,4 +286,16 @@
         animation: none !important;
         transition: none !important;
     }
+
+    /* Elementos que dependem de uma animação para sair do estado inicial
+       precisam continuar visíveis quando o usuário reduz movimento. */
+    .hero-content > * {
+        opacity: 1;
+        transform: none;
+    }
+
+    .tech-card {
+        opacity: 1;
+        transform: none;
+    }
 }
