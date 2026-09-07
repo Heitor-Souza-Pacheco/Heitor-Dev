@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    /* Fundo */
+    --bg-primary: #070A12;
+    --bg-secondary: #0D111C;
+    --bg-card: #111827;
+    --bg-card-hover: #151E2F;
+
+    /* Cores principais */
+    --brand-blue: #4F8CFF;
+    --brand-purple: #8B5CF6;
+    --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+
+    /* Textos */
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --text-muted: #64748B;
+
+    /* Efeitos e bordas */
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-highlight: rgba(79, 140, 255, 0.35);
+    --glow-blue: rgba(79, 140, 255, 0.20);
+    --glow-purple: rgba(139, 92, 246, 0.18);
+
+    /* Layout */
+    --content-width: 1200px;
+    --section-padding: clamp(5rem, 10vw, 9rem);
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+
+    /* Tipografia */
+    --font-body: 'Inter', sans-serif;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+    /* Animações */
+    --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-fast: 180ms var(--ease-premium);
+    --transition-normal: 350ms var(--ease-premium);
+
+    /*
+       Aliases usados pelos primeiros módulos V2.
+       Mantê-los aqui evita tokens duplicados ou variáveis indefinidas
+       entre Hero, Navbar e Contato.
+    */
+    --color-bg: var(--bg-primary);
+    --color-bg-secondary: var(--bg-secondary);
+    --color-primary: var(--brand-blue);
+    --color-secondary: var(--brand-purple);
+    --color-text: var(--text-primary);
+    --color-text-muted: var(--text-secondary);
+    --color-border: var(--border-subtle);
+    --gradient-main: var(--brand-gradient);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    background: var(--bg-primary);
+    scrollbar-color: var(--brand-blue) var(--bg-primary);
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+    overflow-x: hidden;
+    background:
+        radial-gradient(circle at 15% 10%, var(--glow-purple), transparent 28rem),
+        radial-gradient(circle at 85% 20%, var(--glow-blue), transparent 30rem),
+        var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+body::-webkit-scrollbar-thumb {
+    border: 3px solid var(--bg-primary);
+    border-radius: 999px;
+    background: linear-gradient(var(--brand-blue), var(--brand-purple));
+}
+
+::selection {
+    background: rgba(79, 140, 255, 0.35);
+    color: var(--text-primary);
+}
+
+a {
+    color: inherit;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+img,
+svg {
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}

@@ -1,0 +1,114 @@
+/* V2 FINAL POLISH
+   Camada final de acabamento visual.
+   Não controla reveals, tilt, modais ou navegação.
+*/
+
+html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+a,
+input,
+textarea {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background: rgba(79, 140, 255, 0.28);
+    color: var(--text-primary, #f5f7fb);
+}
+
+/* Links: feedback consistente sem substituir os hovers específicos. */
+.contact-v2-link,
+.project-v2-link,
+.footer-v2-top,
+.nav-link,
+.mobile-link,
+.hero-button,
+.experience-details-button {
+    position: relative;
+}
+
+.contact-v2-link,
+.project-v2-link,
+.footer-v2-top {
+    transition:
+        color 0.25s ease,
+        transform 0.25s var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.contact-v2-link:hover,
+.project-v2-link:hover,
+.footer-v2-top:hover {
+    transform: translateY(-2px);
+}
+
+/* Feedback tátil sutil nos botões, sem alterar a animação de entrada. */
+.hero-button,
+.contact-v2-submit,
+.experience-details-button,
+.nav-menu-button {
+    transition-property: transform, background, border-color, color, box-shadow;
+    transition-duration: 0.25s;
+    transition-timing-function: var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+.hero-button:active,
+.contact-v2-submit:active,
+.experience-details-button:active,
+.nav-menu-button:active {
+    transform: translateY(1px) scale(0.985);
+}
+
+/* Mantém o conteúdo das áreas animadas em sua própria camada de pintura. */
+.hero-glow,
+.hero-grid,
+.projects-v2-card-reveal,
+.project-v2-media img {
+    backface-visibility: hidden;
+}
+
+/* Impede imagens grandes de criarem pequenos saltos durante a decodificação. */
+.project-v2-media {
+    contain: paint;
+}
+
+/* Evita transições artificiais quando o usuário prefere movimento reduzido. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+    }
+
+    .contact-v2-link:hover,
+    .project-v2-link:hover,
+    .footer-v2-top:hover,
+    .hero-button:active,
+    .contact-v2-submit:active,
+    .experience-details-button:active,
+    .nav-menu-button:active {
+        transform: none;
+    }
+}
+
+/* Touch devices não precisam de efeitos dependentes de hover. */
+@media (hover: none) {
+    .contact-v2-link:hover,
+    .project-v2-link:hover,
+    .footer-v2-top:hover {
+        transform: none;
+    }
+}

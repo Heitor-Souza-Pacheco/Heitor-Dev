@@ -1,354 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heitor de Souza Pacheco Dev</title>
-    <link rel="stylesheet" href="CSS/nav.css">
-    <link rel="stylesheet" href="CSS/sectionPrincipal.css">
-    <link rel="stylesheet" href="CSS/animacao.css">
-    <link rel="stylesheet" href="CSS/divisoes.css">
+    <meta name="theme-color" content="#070a12">
+    <meta name="description" content="Portfólio de Heitor Pacheco, estudante de Informática e desenvolvedor focado em backend, APIs REST e Java com Spring Boot.">
+    <meta name="author" content="Heitor de Souza Pacheco">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Heitor Pacheco | Desenvolvedor Backend">
+    <meta property="og:description" content="Portfólio de Heitor Pacheco, com foco em backend, APIs REST, Java e Spring Boot.">
+    <meta property="og:image" content="assets/Icone.png">
+    <meta property="og:locale" content="pt_BR">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Heitor Pacheco | Desenvolvedor Backend">
+    <meta name="twitter:description" content="Portfólio de Heitor Pacheco, com foco em backend, APIs REST, Java e Spring Boot.">
+    <title>Heitor Pacheco | Desenvolvedor Backend</title>
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="preconnect" href="https://uxwing.com">
     <link rel="stylesheet" href="CSS/sectionSobre.css">
-    <link rel="stylesheet" href="CSS/projetos.css">
-    <link rel="stylesheet" href="CSS/contato.css">
-    <link rel="stylesheet" href="CSS/responsivo.css">
+    <link rel="stylesheet" href="CSS/v2-base.css">
+    <link rel="stylesheet" href="CSS/v2-hero.css">
+    <link rel="stylesheet" href="CSS/v2-navbar.css">
+    <link rel="stylesheet" href="CSS/v2-experience.css">
+    <link rel="stylesheet" href="CSS/v2-projects.css">
+    <link rel="stylesheet" href="CSS/v2-about.css">
+    <link rel="stylesheet" href="CSS/v2-contact.css">
+    <link rel="stylesheet" href="CSS/v2-footer.css">
+    <link rel="stylesheet" href="CSS/v2-polish.css">
+    <link rel="stylesheet" href="CSS/v2-navigation-polish.css">
+    <link rel="stylesheet" href="CSS/v2-final-polish.css">
     <link rel="icon" href="assets/Icone.png">
 </head>
-
-<!--Cabeçalho-->
-<header class="menu">
-    <!--Navegação celular-->
-    <div class="menu-hamburguer" id="menu-hamburguer">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <!--Navegção pc-->
-    <nav>
-        <a href="#home" class="linkHome">
-            <span class="nomeNav">Heitor</span>
-        </a>
-        <div class="selecaoMenu">
-            <ul class="itensMenu">
-                <li>
-                    <a class="home navegacao" href="#home">Home</a>
-                </li>
-                <li>
-                    <a id="sobreid" class="sobre navegacao" href="#sobre">Sobre</a>
-                </li>
-                <li>
-                    <a class="projetos navegacao" href="#projetos">Projetos</a>
-                </li>
-                <li>
-                    <a class="contato navegacao" href="#contato">Contato</a>
-                </li>
-            </ul>
-        </div>
-        <!--Icones do nav-->
-        <span class="icones">
-            <a href="https://github.com/Heitor-Souza-Pacheco">
-                <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="">
-            </a>
-            <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-                <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="">
-            </a>
-            <a href="https://www.instagram.com/_.hei_tor/">
-                <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg?semt=ais_hybrid&w=740&q=80" alt="">
-            </a>
-        </span>
-    </nav>
-</header>
-<!--Menu responsivo em celular-->
-<div class="menu-mobile">
-
-    <a href="#home">Home</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#projetos">Projetos</a>
-    <a href="#contato">Contato</a>
-    <div class="icones-mobile">
-        <a href="https://github.com/Heitor-Souza-Pacheco">
-            <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png">
-        </a>
-
-        <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-            <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png">
-        </a>
-
-        <a href="https://www.instagram.com/_.hei_tor/">
-            <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg">
-        </a>
-    </div>
-
-</div>
-
-<!--Começo do código corpo da página-->
 <body>
-    <main>
-
-        <!--Section do começo-->
-        <section id="home" data-color="#0000" class="principal">
-            <!--Escrito no título-->
-            <div id="tituloPrincipal" class="titulo">
-                <h1 class="meuNome tituloAnima">Olá, eu sou o Heitor</h1>
-                <h2 class="funcao tituloAnima2">Estudante de Informática</h2>
-                <p class="resumo hiden">
-                    Eu estou cursando o segundo ano do ensino médio no Colégio Técnico Cotemig e estagiando como Dev na Arújo. Domino
-                    algumas linguagens de programação como HTML, CSS, JavaScript, Python, C# e Java. Busco sempre melhorar nesse ramo através
-                    de novos projetos.
-                </p>
-                <a href="#contato">
-                    <button class="botaoContato tituloAnima3">
-                        <h2>Contate-me</h2>
-                    </button>
-                </a>
+    <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+    <nav class="navbar-v2" aria-label="Navegação principal">
+        <a href="#home" class="nav-logo" aria-label="Heitor Pacheco - início">H<span>.</span>PACHECO</a>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link active">Home</a></li>
+            <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+            <li><a href="#projetos" class="nav-link">Projetos</a></li>
+            <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+        <div class="nav-social" aria-label="Redes profissionais">
+            <a href="https://github.com/Heitor-Souza-Pacheco" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Heitor Pacheco"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="" width="18" height="18" decoding="async"></a>
+            <a href="https://www.linkedin.com/in/heitor-souza-pacheco/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Heitor Pacheco"><img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="" width="18" height="18" decoding="async"></a>
+        </div>
+        <button class="nav-menu-button" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </nav>
+    <div id="mobile-menu" class="mobile-menu" aria-label="Menu de navegação mobile">
+        <a href="#home" class="mobile-link">Home</a><a href="#sobre" class="mobile-link">Sobre</a><a href="#experiencia" class="mobile-link">Experiência</a><a href="#projetos" class="mobile-link">Projetos</a><a href="#contato" class="mobile-link">Contato</a>
+    </div>
+    <main id="main-content">
+        <section id="home" class="hero-v2" aria-labelledby="hero-title">
+            <div class="hero-grid" aria-hidden="true"></div><div class="hero-glow" aria-hidden="true"></div>
+            <div class="hero-content">
+                <span class="hero-eyebrow">DESENVOLVEDOR BACKEND</span>
+                <h1 id="hero-title" class="hero-title">Construindo sistemas <span>que fazem sentido.</span></h1>
+                <p class="hero-description">Estudante de Informática e desenvolvedor focado em backend, APIs REST e construção de soluções eficientes.</p>
+                <div class="hero-tech-stack" aria-label="Principais tecnologias"><span>Java</span><span>Spring Boot</span><span>Python</span><span>Docker</span></div>
+                <div class="hero-actions"><a href="#projetos" class="hero-button hero-button-primary">Ver projetos <span aria-hidden="true">↗</span></a><a href="#contato" class="hero-button hero-button-secondary">Entre em contato</a></div>
             </div>
-            <!--Foto de perfil-->
-            <div class="img hiden2">
-                <div class="orbit-container ">
-                    <img src="assets/foto perfil.jpg" class="perfil">
-                    <div class="orbit">
-                        <div class="orbitaItem item1">
-                            <img src="assets/HTML.png" class="logo">
-                        </div>
-
-                        <div class="orbitaItem item2">
-                            <img src="assets/CSS.webp" class="logo">
-                        </div>
-
-                        <div class="orbitaItem item3">
-                            <img src="assets/JAVASCRIPT.png" class="logo">
-                        </div>
-
-                        <div class="orbitaItem item4">
-                            <img src="assets/PYTHON.png" class="logo">
-                        </div>
-
-                        <div class="orbitaItem item5">
-                            <img src="assets/cSharp.png" class="logo">
-                        </div>
-                        <div class="orbitaItem item6">
-                            <img src="assets/JavaLogo.png" class="logo">
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <a href="#sobre" class="scroll-indicator" aria-label="Ir para a seção Sobre"><span>SCROLL</span><span class="scroll-arrow" aria-hidden="true">↓</span></a>
         </section>
-
-        <!--Divisão entre sections-->
-        <div id="divSobre" class="divisao animar hiden"><h1>Sobre mim</h1></div>
-
-        <!--Section sobre mim-->
-        <section id="sobre" data-color="#0000" class="sobreMim">
-            <!--Foto de perfil-->
-            <div class="fotoEu hiden">
-                <img src="assets/foto linkedIn.png" alt="Foto linkedIn">
-            </div>
-            <!--Textos-->
-            <div class="texto">
-
-                <div class="textoSobre">
-                    <p id="paragrafo1" class="p1 hiden">Meu nome é Heitor e sou um estudante apaixonado pela
-                        informática e áreas de desenvolvimentos.
-                    </p>
-                    <p id="paragrafo2" class="p2 hiden2">Atualmente, estou no segundo ano do Ensino Médio Técnico no Colégio Cotemig,
-                        onde pude desenvolver minhas habilidades no desenvolvimento backend e frontend. Além disso, sou estágiario em
-                        desenvolvimento na Araújo, onde tenho muito contado com Spring Boot e SQL.
-                    </p>
-                    <p id="paragrafo3" class="p3 hiden">Estou focado em cursos para sempre aprender mais sobre o desenvolvimento de sites
-                        modernos com ótima experiência e também no desenvolvimento de softwares.
-                    </p>
-                </div>
-
-                <!--Cards-->
-                <div class="expContainer">
-                    <!--Card 1-->
-                    <div class="educacao hiden">
-                        <header class="cabecalho edu">
-                            <h1>Educação</h1>
-                        </header>
-                        <p class="educacaoTexto">2025 - 2027 Colégio Cotemig Informática</p>
-                    </div>
-                    <!--Card 2-->
-                    <div class="experiencia tituloAnima2">
-                        <header class="cabecalho exp">
-                            <h1>Experiência</h1>
-                        </header>
-                        <p class="expTexto">2026 - Estagio em desenvolvimento backend e SQL na Araújo</p>
-                    </div>
-                    <!--Card 3-->
-                    <div class="conhecimentos hiden2">
-                        <header class="cabecalho con">
-                            <h1>Conhecimentos</h1>
-                        </header>
-                        <p class="conhecimentosTexto">Possuo conhecimentos em Python, HTML, CSS, JavaScript e C#, além de API rest</p>
-                    </div>
-                </div>
-            </div>
+        <section id="sobre" data-color="#0000" class="sobreMim" aria-labelledby="sobre-title">
+            <div class="fotoEu"><img src="assets/foto linkedIn.png" alt="Foto de Heitor Pacheco" loading="lazy" decoding="async"></div>
+            <div class="texto"><div class="textoSobre"><p id="paragrafo1" class="p1">Meu nome é Heitor e sou um estudante apaixonado pela informática e áreas de desenvolvimentos.</p><p id="paragrafo2" class="p2">Atualmente, estou no segundo ano do Ensino Médio Técnico no Colégio Cotemig, onde pude desenvolver minhas habilidades no desenvolvimento backend e frontend. Além disso, sou estagiário em desenvolvimento na Araújo, onde tenho muito contato com Spring Boot e SQL.</p><p id="paragrafo3" class="p3">Estou focado em cursos para sempre aprender mais sobre o desenvolvimento de sites modernos com ótima experiência e também no desenvolvimento de softwares.</p></div><h2 id="sobre-title" class="sr-only">Sobre mim</h2><div class="expContainer"><div class="educacao"><header class="cabecalho edu"><h3>Educação</h3></header><p class="educacaoTexto">2025 - 2027 Colégio Cotemig Informática</p></div><div class="experiencia"><header class="cabecalho exp"><h3>Experiência</h3></header><p class="expTexto">2026 - Estágio em desenvolvimento backend e SQL na Araújo</p></div><div class="conhecimentos"><header class="cabecalho con"><h3>Conhecimentos</h3></header><p class="conhecimentosTexto">Possuo conhecimentos em Python, HTML, CSS, JavaScript e C#, além de API REST</p></div></div></div>
         </section>
-
-        <!--Section projetos-->
-        <section id="projetos" data-color="#0000" class="projetosSection">
-            <!--Título página-->
-            <header class="tituloProjetos tituloAnima2">
-                <h1>Projetos</h1>
-                <hr>
-            </header>
-            <!--Local dos cards-->
-            <div class="projetosContainer">
-                <!--Card 1-->
-                <div class="projeto1 card1 hiden">
-                    <div class="imagemProjeto">
-                        <img src="assets/projeto1.png" alt="Primeiro projeto">
-                    </div>
-                    <div class="corpoProjeto">
-                        <header class="projetoTitulo">
-                            <h1>Loja de ceular</h1>
-                        </header>
-                        <p class="textoProjeto">
-                            Uma forma de treinar meus conhecimentos em HTML e CSS a partir
-                            de uma loja web.
-                        </p>
-                        <div class="usoContainer">
-                            <div class="uso">
-                                <p>HTML</p>
-                            </div>
-                            <div class="uso">
-                                <p>CSS</p>
-                            </div>
-                        </div>
-                        <div class="linkContainer">
-                            <a href="https://heitor-souza-pacheco.github.io/Loja-Celular/">
-                                <div class="botaoLink">
-                                    <p>Abrir</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Card 2-->
-                <div class="projeto1 card2 tituloAnima2">
-                    <div class="imagemProjeto">
-                        <img src="assets/projeto2.png" alt="Primeiro projeto">
-                    </div>
-                    <div class="corpoProjeto">
-                        <header class="projetoTitulo">
-                            <h1>Tabela Periódica</h1>
-                        </header>
-                        <p class="textoProjeto">
-                            Um projeto representativo de uma tabela periódica reativa ao
-                            clique do usuário.
-                        </p>
-                        <div class="usoContainer2">
-                            <div class="uso2">
-                                <p>HTML</p>
-                            </div>
-                            <div class="uso2">
-                                <p>CSS</p>
-                            </div>
-                            <div class="uso2">
-                                <p>JavaScript</p>
-                            </div>
-                        </div>
-                        <div class="linkContainer">
-                            <a href="https://heitor-souza-pacheco.github.io/Tabela-Peri-dica/">
-                                <div class="botaoLink">
-                                    <p>Abrir</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!--Card 3-->
-                <div class="projeto1 card3 hiden2">
-                    <div class="imagemProjeto">
-                        <img src="assets/projeto3.png" alt="Primeiro projeto">
-                    </div>
-                    <div class="corpoProjeto">
-                        <header class="projetoTitulo">
-                            <h1>Lista de tarefas</h1>
-                        </header>
-                        <p class="textoProjeto">
-                            Um trabalho para uma lista de tarefas totalmente funcional e atualizada
-                            em web.
-                        </p>
-                        <div class="usoContainer2">
-                            <div class="uso2">
-                                <p>HTML</p>
-                            </div>
-                            <div class="uso2">
-                                <p>CSS</p>
-                            </div>
-                            <div class="uso2">
-                                <p>JavaScript</p>
-                            </div>
-                        </div>
-                        <div class="linkContainer">
-                            <a href="https://heitor-souza-pacheco.github.io/Lista-tarefas/">
-                                <div class="botaoLink">
-                                    <p>Abrir</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="experiencia" class="experience" aria-labelledby="experience-title">
+            <div class="experience-container"><div class="experience-intro"><span class="section-label">EXPERIÊNCIA</span><h2 id="experience-title">Onde estou <span>construindo experiência.</span></h2><p>Minha trajetória profissional começou cedo e vem sendo construída através de experiências práticas em tecnologia, desenvolvimento e trabalho em equipe.</p><div class="experience-line" aria-hidden="true"></div></div><div class="experience-timeline"><div class="experience-item"><div class="experience-marker" aria-hidden="true"><span></span></div><div class="experience-card"><div class="experience-card-header"><div><span class="experience-date">2026 — PRESENTE</span><h3>Drogaria Araújo</h3><p class="experience-role">Estagiário Técnico</p></div><span class="experience-number" aria-hidden="true">01</span></div><div class="experience-card-body"><p>Atuação no desenvolvimento e manutenção de sistemas backend, trabalhando principalmente com Java e Spring Boot em uma API já existente.</p><div class="experience-technologies"><span>Java</span><span>Spring Boot</span><span>SQL</span><span>Docker</span><span>Kafka</span><span>Tanzu</span><span>New Relic</span></div><div class="experience-highlights"><div><span>01</span>Desenvolvimento de novas funcionalidades</div><div><span>02</span>Manutenção e evolução de sistemas</div><div><span>03</span>Documentação e migrações</div><div><span>04</span>Análise arquitetural de API legada</div></div><button class="experience-details-button" type="button" aria-haspopup="dialog" aria-label="Ver detalhes da experiência na Drogaria Araújo">Ver detalhes <span aria-hidden="true">↗</span></button></div></div></div><div class="experience-item experience-item-secondary"><div class="experience-marker" aria-hidden="true"><span></span></div><div class="experience-card"><div class="experience-card-header"><div><span class="experience-date">EXPERIÊNCIA ANTERIOR</span><h3>Freelancer</h3><p class="experience-role">Produção audiovisual</p></div><span class="experience-number" aria-hidden="true">02</span></div><div class="experience-card-body"><p>Experiência trabalhando em equipe na gravação de vídeos em salões de festas, desenvolvendo principalmente comunicação, organização e contato direto com o público.</p><div class="experience-technologies"><span>Comunicação</span><span>Trabalho em equipe</span><span>Atendimento</span></div></div></div></div></div></div>
         </section>
-
-        <!--Divisão entre sections-->
-        <div class="divisao2  hiden animar"><h1>Contato</h1></div>
-
-        <!--Section contato-->
-        <section id="contato" data-color="#0000" class="contatoSection">
-            <!--Texto da section-->
-            <div class="info">
-                <header class="infoTitulo hiden">
-                    <h2>Algum interesse? Estou sempre aberto para conversamos
-                        e para novas oportunidade.
-                    </h2>
-                </header>
-                <div class="infoContatos">
-                    <div class="email tituloAnima">
-                        <p class="ico">&#9993;</p>
-                        <p>heitorpacheco2009@gmail.com</p>
-                    </div>
-                    <div class="telefone tituloAnima2">
-                        <p class="ico">&#9742;</p>
-                        <p>+55 (31) 97512-3387</p>
-                    </div>
-                </div>
-                <div class="infoLogo logoFinal hiden">
-                    <a href="https://github.com/Heitor-Souza-Pacheco">
-                    <img class="githubImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png" alt="">
-                    </a>
-                    <a href="https://www.linkedin.com/in/heitor-souza-pacheco/">
-                        <img class="linkedinImg" src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/linkedin-app-white-icon.png" alt="">
-                    </a>
-                    <a href="https://www.instagram.com/_.hei_tor/">
-                        <img class="instagramImg" src="https://img.freepik.com/vetores-premium/logotipo-de-midia-social-de-contorno-preto_197792-2416.jpg?semt=ais_hybrid&w=740&q=80" alt="">
-                    </a>
-                </div>
-            </div>
-            <!--Forms da section-->
-            <div class="inputContato hiden2">
-                <div class="inputNome tituloAnima3">
-                    <input class="place" type="text" placeholder="Seu nome">
-                </div>
-                <div class="inputEmail tituloAnima3">
-                    <input class="place" type="email" placeholder="Seu Email">
-                </div>
-                <div class="mensagem tituloAnima3">
-                    <input type="text" placeholder="Sua mensagem">
-                </div>
-                <div class="submitBotao hiden2">
-                    <button type="submit" class="botao">
-                        <p>Envie aqui</p>
-                    </button>
-                </div>
-            </div>
-        </section>
-
+        <section id="projetos" data-color="#0000" class="projects-v2-section" aria-labelledby="projects-title"></section>
+        <section id="contato" class="contact-v2-section" aria-labelledby="contact-title"><div class="contact-v2-container"><div class="contact-v2-intro"><span class="contact-v2-label">CONTATO</span><h2 id="contact-title">Vamos transformar uma ideia em <span>algo real.</span></h2><p>Estou aberto para conversar sobre projetos, oportunidades e novas experiências na área de tecnologia.</p><div class="contact-v2-links" aria-label="Formas de contato"><a class="contact-v2-link" href="mailto:heitorpacheco2009@gmail.com">E-mail ↗</a><a class="contact-v2-link" href="https://github.com/Heitor-Souza-Pacheco" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a class="contact-v2-link" href="https://www.linkedin.com/in/heitor-souza-pacheco/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div></div><form class="contact-v2-form" aria-labelledby="contact-form-title"><h3 id="contact-form-title" class="contact-v2-form-title">Envie uma mensagem</h3><div class="contact-v2-field"><label for="contact-name">NOME</label><input id="contact-name" name="name" type="text" placeholder="Seu nome" autocomplete="name" required></div><div class="contact-v2-field"><label for="contact-email">E-MAIL</label><input id="contact-email" name="email" type="email" placeholder="seu@email.com" autocomplete="email" inputmode="email" required></div><div class="contact-v2-field"><label for="contact-message">MENSAGEM</label><textarea id="contact-message" name="message" placeholder="Conte um pouco sobre o que você tem em mente..." autocomplete="off" required></textarea></div><button class="contact-v2-submit" type="submit">Enviar mensagem <span aria-hidden="true">↗</span></button><p class="contact-v2-status" aria-live="polite" aria-atomic="true"></p></form></div></section>
     </main>
+    <footer class="footer-v2"><div class="footer-v2-container"><a class="footer-v2-brand" href="#home" aria-label="Voltar ao início - Heitor Pacheco">H<span>.</span>PACHECO</a><p class="footer-v2-copy">© 2026 HEITOR PACHECO · DESENVOLVEDOR BACKEND</p><a class="footer-v2-top" href="#home">VOLTAR AO TOPO <span aria-hidden="true">↑</span></a></div></footer>
+    <script src="hero.js"></script><script src="navbar.js"></script><script src="experience-v2.js"></script><script src="about-v2.js"></script><script src="projects-v2.js"></script><script src="contact-v2.js"></script><script src="navigation-polish.js"></script>
 </body>
-<!--JavaScript-->
-<script src="script.js"></script>
 </html>

@@ -1,0 +1,94 @@
+.sobreMim {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.sobreMim::before {
+    content: 'SOBRE MIM';
+    position: absolute;
+    top: 55px;
+    left: 0;
+    color: var(--brand-blue);
+    font: 600 .7rem monospace;
+    letter-spacing: .18em;
+}
+
+.sobreMim::after {
+    content: '';
+    position: absolute;
+    top: 55px;
+    left: 100px;
+    width: 55px;
+    height: 1px;
+    background: var(--brand-gradient);
+}
+
+.sobreMim .textoSobre {
+    gap: 22px;
+}
+
+.sobreMim .textoSobre .p1 {
+    max-width: 620px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 3.4vw, 3.15rem);
+    line-height: 1.04;
+    letter-spacing: -.05em;
+    color: var(--text-primary);
+}
+
+.sobreMim .textoSobre .p2,
+.sobreMim .textoSobre .p3 {
+    max-width: 590px;
+}
+
+.sobreMim .fotoEu {
+    transform: translateZ(0);
+}
+
+.sobreMim .fotoEu img {
+    transition: transform .6s var(--ease-premium), filter .4s ease, border-color .4s ease;
+}
+
+.sobreMim .fotoEu:hover img {
+    transform: translateY(-7px) scale(1.018);
+}
+
+.sobreMim .expContainer {
+    position: relative;
+    gap: 10px;
+}
+
+.sobreMim .expContainer > * {
+    cursor: default;
+    transition: transform .35s var(--ease-premium), border-color .35s ease, background .35s ease, box-shadow .35s ease;
+}
+
+.sobreMim .expContainer > *:hover {
+    transform: translateY(-6px);
+}
+
+.sobreMim .expContainer > *::after {
+    content: '↗';
+    position: absolute;
+    right: 18px;
+    bottom: 17px;
+    color: var(--text-muted);
+    font-family: monospace;
+    font-size: .75rem;
+    opacity: .55;
+    transition: transform .25s ease, color .25s ease, opacity .25s ease;
+}
+
+.sobreMim .expContainer > *:hover::after {
+    transform: translate(3px, -3px);
+    color: var(--brand-blue);
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sobreMim .fotoEu img,
+    .sobreMim .expContainer > * {
+        transition: none;
+    }
+}
