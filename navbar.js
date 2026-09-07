@@ -3,58 +3,60 @@ const navLinks = document.querySelectorAll(".nav-link");
 
 if (navbar) {
     window.addEventListener("scroll", () => {
-        if (window.scrollY > 30) {
-            navbar.classList.add("scrolled");
-        } else {
-            navbar.classList.remove("scrolled");
-        }
-    });
+        navbar.classList.toggle("scrolled", window.scrollY > 30);
+    }, { passive: true });
 }
 
 const sections = document.querySelectorAll("main section[id]");
 
-const sectionObserver = new IntersectionObserver(
-    (entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
+if ("IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
 
-            const currentSection = entry.target.id;
+                const currentSection = entry.target.id;
 
-            navLinks.forEach((link) => {
-                link.classList.remove("active");
-
-                if (link.getAttribute("href") === `#${currentSection}`) {
-                    link.classList.add("active");
-                }
+                navLinks.forEach((link) => {
+                    const isActive = link.getAttribute("href") === `#${currentSection}`;
+                    link.classList.toggle("active", isActive);
+                    link.setAttribute("aria-current", isActive ? "page" : "false");
+                });
             });
-        });
-    },
-    {
-        threshold: 0.35
-    }
-);
+        },
+        { threshold: 0.35 }
+    );
 
-sections.forEach((section) => {
-    sectionObserver.observe(section);
-});
+    sections.forEach((section) => sectionObserver.observe(section));
+}
 
 const menuButton = document.querySelector(".nav-menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const mobileLinks = document.querySelectorAll(".mobile-link");
 
 if (menuButton && mobileMenu) {
-    menuButton.addEventListener("click", () => {
-        const isOpen = mobileMenu.classList.toggle("open");
-
+    const setMenuState = (isOpen) => {
+        mobileMenu.classList.toggle("open", isOpen);
         menuButton.classList.toggle("active", isOpen);
-        menuButton.setAttribute("aria-expanded", isOpen);
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+        mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+    };
+
+    setMenuState(false);
+
+    menuButton.addEventListener("click", () => {
+        setMenuState(!mobileMenu.classList.contains("open"));
     });
 
     mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-            mobileMenu.classList.remove("open");
-            menuButton.classList.remove("active");
-            menuButton.setAttribute("aria-expanded", "false");
-        });
+        link.addEventListener("click", () => setMenuState(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && mobileMenu.classList.contains("open")) {
+            setMenuState(false);
+            menuButton.focus();
+        }
     });
 }
