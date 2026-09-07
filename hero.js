@@ -14,10 +14,10 @@
         hero.style.setProperty('--mouse-y', `${y}px`);
 
         if (heroGlow) {
-            heroGlow.style.left = `${x}px`;
-            heroGlow.style.top = `${y}px`;
+            heroGlow.style.setProperty('--glow-x', `${x}px`);
+            heroGlow.style.setProperty('--glow-y', `${y}px`);
         }
-    });
+    }, { passive: true });
 
     // Stacks flutuantes da Hero V2.
     if (!hero.querySelector('.hero-tech')) {
