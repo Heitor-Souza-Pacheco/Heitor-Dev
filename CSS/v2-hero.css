@@ -221,41 +221,6 @@
     50% { transform: translateY(6px); }
 }
 
-.hero-content > * {
-    opacity: 0;
-    transform: translateY(25px);
-    animation: heroReveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.hero-eyebrow { animation-delay: 0.15s !important; }
-.hero-title { animation-delay: 0.3s !important; }
-.hero-subtitle { animation-delay: 0.45s !important; }
-.hero-description { animation-delay: 0.6s !important; }
-.hero-actions { animation-delay: 0.75s !important; }
-
-@keyframes heroReveal {
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tech-card {
-    opacity: 0;
-    animation-name: techCardReveal, floatingCard;
-    animation-duration: 0.8s, 5s;
-    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1), ease-in-out;
-    animation-iteration-count: 1, infinite;
-    animation-fill-mode: forwards, none;
-}
-
-.tech-java { animation-delay: 0.5s, 1.3s; }
-.tech-spring { animation-delay: 0.65s, 1.8s; }
-.tech-sql { animation-delay: 0.8s, 2.3s; }
-.tech-docker { animation-delay: 0.95s, 2.8s; }
-
-@keyframes techCardReveal {
-    from { opacity: 0; transform: translateY(20px) scale(0.96); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-}
-
 @media (max-width: 900px) {
     .hero-tech { opacity: 0.7; transform: scale(0.9); transform-origin: center right; }
 }
@@ -281,21 +246,8 @@
     .hero-glow,
     .tech-card,
     .scroll-arrow,
-    .status-dot,
-    .hero-content > * {
+    .status-dot {
         animation: none !important;
         transition: none !important;
-    }
-
-    /* Elementos que dependem de uma animação para sair do estado inicial
-       precisam continuar visíveis quando o usuário reduz movimento. */
-    .hero-content > * {
-        opacity: 1;
-        transform: none;
-    }
-
-    .tech-card {
-        opacity: 1;
-        transform: none;
     }
 }
