@@ -29,3 +29,31 @@
         status.textContent = 'Formulário preparado — configure o serviço de envio para receber mensagens.';
     });
 })();
+
+
+const inputTelefone = document.getElementById('telefone');
+
+inputTelefone.addEventListener('input', function (e) {
+  let valor = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+  
+  if (valor.length > 11) {
+    valor = valor.slice(0, 11); // Limita o tamanho máximo
+  }
+
+  // Aplica a máscara dependendo do tamanho do número
+  if (valor.length > 10) {
+    // Formato para celular com 9 dígitos: (00) 00000-0000
+    valor = valor.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+  } else if (valor.length > 5) {
+    // Formato intermediário ou fixo: (00) 0000-0000
+    valor = valor.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+  } else if (valor.length > 2) {
+    // Formato com DDD: (00) 0000
+    valor = valor.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+  } else if (valor.length > 0) {
+    // Formato inicial: (00
+    valor = valor.replace(/^(\d*)/, '($1');
+  }
+
+  e.target.value = valor;
+});
