@@ -27,57 +27,57 @@ textarea {
 }
 
 /* Links: feedback consistente sem substituir os hovers específicos. */
-.contact-v2-link,
-.project-v2-link,
-.footer-v2-top,
-.nav-link,
-.mobile-link,
-.hero-button,
-.experience-details-button {
+.link-contato,
+.link-projeto,
+.rodape-top,
+.link-navegacao,
+.link-mobile,
+.botao-inicio,
+.experiencia-secao-details-button {
     position: relative;
 }
 
-.contact-v2-link,
-.project-v2-link,
-.footer-v2-top {
+.link-contato,
+.link-projeto,
+.rodape-top {
     transition:
         color 0.25s ease,
         transform 0.25s var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
-.contact-v2-link:hover,
-.project-v2-link:hover,
-.footer-v2-top:hover {
+.link-contato:hover,
+.link-projeto:hover,
+.rodape-top:hover {
     transform: translateY(-2px);
 }
 
 /* Feedback tátil sutil nos botões, sem alterar a animação de entrada. */
-.hero-button,
-.contact-v2-submit,
-.experience-details-button,
-.nav-menu-button {
+.botao-inicio,
+.botao-enviar-contato,
+.experiencia-secao-details-button,
+.botao-menu-navegacao {
     transition-property: transform, background, border-color, color, box-shadow;
     transition-duration: 0.25s;
     transition-timing-function: var(--ease-premium, cubic-bezier(0.22, 1, 0.36, 1));
 }
 
-.hero-button:active,
-.contact-v2-submit:active,
-.experience-details-button:active,
-.nav-menu-button:active {
+.botao-inicio:ativo,
+.botao-enviar-contato:ativo,
+.experiencia-secao-details-button:ativo,
+.botao-menu-navegacao:ativo {
     transform: translateY(1px) scale(0.985);
 }
 
 /* Mantém o conteúdo das áreas animadas em sua própria camada de pintura. */
-.hero-glow,
-.hero-grid,
+.brilho-inicio,
+.grade-inicio,
 .projects-v2-card-reveal,
-.project-v2-media img {
+.midia-projeto img {
     backface-visibility: hidden;
 }
 
 /* Impede imagens grandes de criarem pequenos saltos durante a decodificação. */
-.project-v2-media {
+.midia-projeto {
     contain: paint;
 }
 
@@ -93,22 +93,22 @@ textarea {
         scroll-behavior: auto !important;
     }
 
-    .contact-v2-link:hover,
-    .project-v2-link:hover,
-    .footer-v2-top:hover,
-    .hero-button:active,
-    .contact-v2-submit:active,
-    .experience-details-button:active,
-    .nav-menu-button:active {
+    .link-contato:hover,
+    .link-projeto:hover,
+    .rodape-top:hover,
+    .botao-inicio:ativo,
+    .botao-enviar-contato:ativo,
+    .experiencia-secao-details-button:ativo,
+    .botao-menu-navegacao:ativo {
         transform: none;
     }
 }
 
 /* Touch devices não precisam de efeitos dependentes de hover. */
 @media (hover: none) {
-    .contact-v2-link:hover,
-    .project-v2-link:hover,
-    .footer-v2-top:hover {
+    .link-contato:hover,
+    .link-projeto:hover,
+    .rodape-top:hover {
         transform: none;
     }
 }
