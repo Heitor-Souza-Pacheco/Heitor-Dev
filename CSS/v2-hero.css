@@ -222,6 +222,7 @@
 }
 
 @media (max-width: 900px) {
+    .indicador-rolagem { display: none; }
     .tecnologias-flutuantes { opacity: 0.7; transform: scale(0.9); transform-origin: center right; }
 }
 
