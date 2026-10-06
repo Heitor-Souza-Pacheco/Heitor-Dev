@@ -1,9 +1,9 @@
 (() => {
-    const hero = document.querySelector('.hero-v2');
+    const hero = document.querySelector('.inicio');
 
     if (!hero) return;
 
-    const heroGlow = hero.querySelector('.hero-glow');
+    const heroGlow = hero.querySelector('.brilho-inicio');
 
     hero.addEventListener('pointermove', (event) => {
         const rect = hero.getBoundingClientRect();
@@ -23,20 +23,20 @@
     }, { passive: true });
 
     // Stacks flutuantes da Hero V2.
-    if (!hero.querySelector('.hero-tech')) {
+    if (!hero.querySelector('.tecnologias-flutuantes')) {
         const floatingTech = document.createElement('div');
-        floatingTech.className = 'hero-tech';
+        floatingTech.className = 'tecnologias-flutuantes';
         floatingTech.setAttribute('aria-hidden', 'true');
 
         const technologies = [
-            ['Java', 'tech-java'],
-            ['Spring Boot', 'tech-spring'],
-            ['SQL', 'tech-sql'],
-            ['Docker', 'tech-docker']
+            ['Java', 'tecnologia-java'],
+            ['Spring Boot', 'tecnologia-spring'],
+            ['SQL', 'tecnologia-sql'],
+            ['Docker', 'tecnologia-docker']
         ];
 
         floatingTech.innerHTML = technologies.map(([name, className]) => `
-            <div class="tech-card ${className}">
+            <div class="cartao-tecnologia ${className}">
                 <span>◆</span>
                 ${name}
             </div>
@@ -46,11 +46,11 @@
     }
 
     const revealElements = [
-        ['.hero-eyebrow', 120],
-        ['.hero-title', 260],
-        ['.hero-description', 400],
-        ['.hero-tech-stack', 540],
-        ['.hero-actions', 680]
+        ['.destaque-inicio', 120],
+        ['.titulo-inicio', 260],
+        ['.descricao-inicio', 400],
+        ['.tecnologias-inicio', 540],
+        ['.acoes-inicio', 680]
     ];
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -79,7 +79,7 @@
         );
     });
 
-    const techCards = hero.querySelectorAll('.tech-card');
+    const techCards = hero.querySelectorAll('.cartao-tecnologia');
     const techDelays = [520, 670, 820, 970];
 
     techCards.forEach((card, index) => {
