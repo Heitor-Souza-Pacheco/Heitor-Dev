@@ -1,30 +1,30 @@
 /* NAVIGATION POLISH — microinterações e progresso de scroll */
 
-.navbar-v2 {
+.barra-navegacao {
     will-change: transform, background, box-shadow;
 }
 
-.navbar-v2.scrolled {
+.barra-navegacao.rolado {
     top: 14px;
     width: min(1080px, calc(100% - 48px));
 }
 
-.nav-link {
+.link-navegacao {
     transition:
         color 0.25s ease,
         background 0.25s ease,
         transform 0.25s var(--ease-premium);
 }
 
-.nav-link:hover {
+.link-navegacao:hover {
     transform: translateY(-1px);
 }
 
-.nav-link.active::after {
+.link-navegacao.ativo::after {
     transition: width 0.3s var(--ease-premium), opacity 0.3s ease;
 }
 
-.scroll-progress {
+.progresso-rolagem {
     position: fixed;
     top: 0;
     left: 0;
@@ -39,7 +39,7 @@
     will-change: transform;
 }
 
-.scroll-top-v2 {
+.voltar-topo {
     position: fixed;
     right: 28px;
     bottom: 28px;
@@ -68,25 +68,25 @@
         background 0.25s ease;
 }
 
-.scroll-top-v2.visible {
+.voltar-topo.visivel {
     opacity: 1;
-    visibility: visible;
+    visibility: visivel;
     transform: translateY(0) scale(1);
 }
 
-.scroll-top-v2:hover {
+.voltar-topo:hover {
     border-color: var(--border-highlight);
     background: rgba(79, 140, 255, 0.08);
     transform: translateY(-3px) scale(1.02);
 }
 
 @media (max-width: 800px) {
-    .navbar-v2.scrolled {
+    .barra-navegacao.rolado {
         top: 10px;
         width: calc(100% - 24px);
     }
 
-    .scroll-top-v2 {
+    .voltar-topo {
         right: 18px;
         bottom: 18px;
         width: 40px;
@@ -95,14 +95,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .navbar-v2,
-    .nav-link,
-    .nav-link.active::after,
-    .scroll-top-v2 {
+    .barra-navegacao,
+    .link-navegacao,
+    .link-navegacao.ativo::after,
+    .voltar-topo {
         transition: none;
     }
 
-    .scroll-progress {
+    .progresso-rolagem {
         box-shadow: none;
     }
 }
