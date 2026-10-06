@@ -22,7 +22,7 @@
         }
     }, { passive: true });
 
-    // Stacks flutuantes da Hero V2.
+    
     if (!hero.querySelector('.tecnologias-flutuantes')) {
         const floatingTech = document.createElement('div');
         floatingTech.className = 'tecnologias-flutuantes';
