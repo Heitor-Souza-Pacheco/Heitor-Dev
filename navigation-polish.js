@@ -1,15 +1,12 @@
 (() => {
-    const navbar = document.querySelector('.navbar-v2');
+    const navbar = document.querySelector('.barra-navegacao');
     const progress = document.createElement('div');
     const scrollTop = document.createElement('a');
 
-    progress.className = 'scroll-progress';
-    progress.setAttribute('aria-hidden', 'true');
-
-    scrollTop.className = 'scroll-top-v2';
+    progress.className = 'progresso-rolagem';
+    progressscrollTop.className = 'voltar-topo';
     scrollTop.href = '#home';
-    scrollTop.setAttribute('aria-label', 'Voltar ao topo');
-    scrollTop.innerHTML = '↑';
+    scrollTopscrollTop.innerHTML = '↑';
 
     document.body.append(progress, scrollTop);
 
@@ -22,7 +19,7 @@
         progress.style.transform = `scaleX(${Math.min(1, Math.max(0, amount))})`;
 
         if (scrollTop) {
-            scrollTop.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
+            scrollTop.classList.toggle('visivel', window.scrollY > window.innerHeight * 0.7);
         }
 
         ticking = false;
