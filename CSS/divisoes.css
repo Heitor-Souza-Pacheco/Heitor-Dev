@@ -21,7 +21,6 @@
     padding-bottom: 10px;
 }
 
-/* linha vermelha */
 .divisao h1::after,
 .divisaoprojetos h1::after,
 .divisao2 h1::after{
