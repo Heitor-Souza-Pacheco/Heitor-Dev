@@ -1,4 +1,4 @@
-.navbar-v2 {
+.barra-navegacao {
     position: fixed;
 
     top: 20px;
@@ -26,7 +26,7 @@
         backdrop-filter 0.35s ease;
 }
 
-.navbar-v2.scrolled {
+.barra-navegacao.rolado {
     background: rgba(7, 10, 18, 0.72);
 
     border-color: var(--color-border);
@@ -37,7 +37,7 @@
         0 12px 40px rgba(0, 0, 0, 0.25);
 }
 
-.nav-logo {
+.logo-navegacao {
     color: var(--color-text);
 
     font-family: var(--font-display);
@@ -52,11 +52,11 @@
 }
 
 
-.nav-logo span {
+.logo-navegacao span {
     color: var(--color-primary);
 }
 
-.nav-links {
+.links-navegacao {
     display: flex;
 
     align-items: center;
@@ -71,7 +71,7 @@
 }
 
 
-.nav-link {
+.link-navegacao {
     position: relative;
 
     display: block;
@@ -96,18 +96,18 @@
 }
 
 
-.nav-link:hover {
+.link-navegacao:hover {
     color: var(--color-text);
 
     background: rgba(255, 255, 255, 0.04);
 }
 
-.nav-link.active {
+.link-navegacao.ativo {
     color: var(--color-text);
 }
 
 
-.nav-link.active::after {
+.link-navegacao.ativo::after {
     content: "";
 
     position: absolute;
@@ -128,7 +128,7 @@
         0 0 10px rgba(79, 140, 255, 0.5);
 }
 
-.nav-social {
+.redes-navegacao {
     display: flex;
 
     align-items: center;
@@ -137,7 +137,7 @@
 }
 
 
-.nav-social a {
+.redes-navegacao a {
     width: 34px;
     height: 34px;
 
@@ -155,7 +155,7 @@
 }
 
 
-.nav-social a:hover {
+.redes-navegacao a:hover {
     transform: translateY(-2px);
 
     background: rgba(255, 255, 255, 0.05);
@@ -164,14 +164,14 @@
 }
 
 
-.nav-social img {
+.redes-navegacao img {
     width: 16px;
     height: 16px;
 
     object-fit: contain;
 }
 
-.nav-menu-button {
+.botao-menu-navegacao {
     display: none;
 
     width: 40px;
@@ -189,7 +189,7 @@
 }
 
 
-.nav-menu-button span {
+.botao-menu-navegacao span {
     display: block;
 
     width: 17px;
@@ -206,7 +206,7 @@
 
 @media (max-width: 800px) {
 
-    .navbar-v2 {
+    .barra-navegacao {
         top: 12px;
 
         width: calc(100% - 24px);
@@ -215,19 +215,19 @@
     }
 
 
-    .nav-links,
-    .nav-social {
+    .links-navegacao,
+    .redes-navegacao {
         display: none;
     }
 
 
-    .nav-menu-button {
+    .botao-menu-navegacao {
         display: block;
     }
 
 }
 
-.mobile-menu {
+.menu-mobile {
     position: fixed;
 
     top: 80px;
@@ -263,16 +263,16 @@
 }
 
 
-.mobile-menu.open {
+.menu-mobile.aberto {
     opacity: 1;
 
-    visibility: visible;
+    visibility: visivel;
 
     transform: translateY(0) scale(1);
 }
 
 
-.mobile-link {
+.link-mobile {
     padding: 14px 10px;
 
     color: var(--color-text-muted);
@@ -291,7 +291,7 @@
 }
 
 
-.mobile-link:hover {
+.link-mobile:hover {
     color: var(--color-text);
 
     padding-left: 15px;
@@ -330,22 +330,22 @@
 
 @media (min-width: 801px) {
 
-    .mobile-menu {
+    .menu-mobile {
         display: none;
     }
 
 }
 
-.nav-menu-button.active span:nth-child(1) {
+.botao-menu-navegacao.ativo span:nth-child(1) {
     transform: translateY(5px) rotate(45deg);
 }
 
 
-.nav-menu-button.active span:nth-child(2) {
+.botao-menu-navegacao.ativo span:nth-child(2) {
     opacity: 0;
 }
 
 
-.nav-menu-button.active span:nth-child(3) {
+.botao-menu-navegacao.ativo span:nth-child(3) {
     transform: translateY(-5px) rotate(-45deg);
 }
