@@ -1,50 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-    /* Fundo */
     --bg-primary: #070A12;
     --bg-secondary: #0D111C;
     --bg-card: #111827;
     --bg-card-hover: #151E2F;
 
-    /* Cores principais */
     --brand-blue: #4F8CFF;
     --brand-purple: #8B5CF6;
     --brand-gradient: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
 
-    /* Textos */
     --text-primary: #F8FAFC;
     --text-secondary: #94A3B8;
     --text-muted: #64748B;
 
-    /* Efeitos e bordas */
     --border-subtle: rgba(255, 255, 255, 0.08);
     --border-highlight: rgba(79, 140, 255, 0.35);
     --glow-blue: rgba(79, 140, 255, 0.20);
     --glow-purple: rgba(139, 92, 246, 0.18);
 
-    /* Layout */
     --content-width: 1200px;
     --section-padding: clamp(5rem, 10vw, 9rem);
     --radius-sm: 10px;
     --radius-md: 18px;
     --radius-lg: 28px;
 
-    /* Tipografia */
     --font-body: 'Inter', sans-serif;
     --font-display: 'Space Grotesk', sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
 
-    /* Animações */
     --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
     --transition-fast: 180ms var(--ease-premium);
     --transition-normal: 350ms var(--ease-premium);
 
-    /*
-       Aliases usados pelos primeiros módulos V2.
-       Mantê-los aqui evita tokens duplicados ou variáveis indefinidas
-       entre Hero, Navbar e Contato.
-    */
     --color-bg: var(--bg-primary);
     --color-bg-secondary: var(--bg-secondary);
     --color-primary: var(--brand-blue);
