@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .sobreMim {
     display: flex;
     flex-direction: row;
@@ -118,7 +117,6 @@
     box-shadow: 0 10px 30px rgba(255, 0, 0, 0.806);
     transform: scale(1.15);
 }
-=======
 .divisao#divSobre {
     display: none;
 }
@@ -366,4 +364,3 @@
         min-height: 130px;
     }
 }
->>>>>>> portifolio-v2
