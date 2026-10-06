@@ -1,4 +1,4 @@
-.footer-v2 {
+.rodape {
     position: relative;
     border-top: 1px solid var(--border-subtle);
     background:
@@ -6,7 +6,7 @@
         var(--bg-primary);
 }
 
-.footer-v2-container {
+.rodape-container {
     width: min(var(--content-width), 90%);
     min-height: 110px;
     margin: 0 auto;
@@ -16,7 +16,7 @@
     gap: 30px;
 }
 
-.footer-v2-brand {
+.rodape-brand {
     color: var(--text-primary);
     font-family: var(--font-display);
     font-size: .9rem;
@@ -25,11 +25,11 @@
     text-decoration: none;
 }
 
-.footer-v2-brand span {
+.rodape-brand span {
     color: var(--brand-blue);
 }
 
-.footer-v2-copy {
+.rodape-copy {
     margin: 0;
     color: var(--text-muted);
     font-family: var(--font-mono);
@@ -38,7 +38,7 @@
     text-align: center;
 }
 
-.footer-v2-top {
+.rodape-top {
     display: inline-flex;
     align-items: center;
     gap: 9px;
@@ -50,21 +50,21 @@
     transition: color var(--transition-fast), transform var(--transition-fast);
 }
 
-.footer-v2-top span {
+.rodape-top span {
     transition: transform var(--transition-fast);
 }
 
-.footer-v2-top:hover {
+.rodape-top:hover {
     color: var(--text-primary);
     transform: translateY(-2px);
 }
 
-.footer-v2-top:hover span {
+.rodape-top:hover span {
     transform: translateY(-3px);
 }
 
 @media (max-width: 650px) {
-    .footer-v2-container {
+    .rodape-container {
         min-height: 150px;
         padding: 28px 0;
         flex-direction: column;
@@ -74,8 +74,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .footer-v2-top,
-    .footer-v2-top span {
+    .rodape-top,
+    .rodape-top span {
         transition: none;
     }
 }
