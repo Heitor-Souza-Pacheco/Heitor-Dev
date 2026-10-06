@@ -26,7 +26,6 @@
     if (!hero.querySelector('.tecnologias-flutuantes')) {
         const floatingTech = document.createElement('div');
         floatingTech.className = 'tecnologias-flutuantes';
-        floatingTech.setAttribute('aria-hidden', 'true');
 
         const technologies = [
             ['Java', 'tecnologia-java'],
