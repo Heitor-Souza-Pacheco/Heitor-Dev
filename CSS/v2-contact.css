@@ -111,7 +111,7 @@
     background: var(--gradient-main);
 }
 
-.formulario-contato-title {
+.titulo-formulario-contato {
     margin: 0 0 25px;
     color: var(--color-text);
     font-family: var(--font-display);
