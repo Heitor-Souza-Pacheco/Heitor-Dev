@@ -61,7 +61,7 @@
     transform: translateY(0);
 }
 
-.sr-only {
+.somente-leitor-tela {
     position: absolute;
     width: 1px;
     height: 1px;
