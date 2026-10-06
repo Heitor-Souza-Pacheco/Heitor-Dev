@@ -63,13 +63,11 @@ const myObserver5 = new IntersectionObserver((entries) => {
 const elements5 = document.querySelectorAll('.tituloAnima3')
 elements5.forEach( (element) => myObserver.observe(element))
 
-//Parte de navegação
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll(".navegacao");
 
 let activeSection = "";
 
-// detecta section no scroll
 const observerMenu = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
 
@@ -96,8 +94,6 @@ const observerMenu = new IntersectionObserver((entries) => {
 
 sections.forEach(section => observerMenu.observe(section));
 
-
-// efeito hover
 navLinks.forEach(link => {
 
   link.addEventListener("mouseenter", () => {
@@ -120,18 +116,15 @@ navLinks.forEach(link => {
 
 });
 
-
-
 const hamburguer = document.getElementById("menu-hamburguer");
 const menuMobile = document.querySelector(".menu-mobile");
 
 if (hamburguer && menuMobile) {
     hamburguer.addEventListener("click", function(event) {
-        event.stopPropagation(); // impede propagação do clique
+        event.stopPropagation();
         this.classList.toggle("ativo");
         menuMobile.classList.toggle("ativo");
         
-        // Opcional: previne scroll do body quando menu aberto
         if (menuMobile.classList.contains("ativo")) {
             document.body.style.overflow = "hidden";
         } else {
@@ -139,7 +132,6 @@ if (hamburguer && menuMobile) {
         }
     });
     
-    // Fecha menu ao clicar em um link
     const menuLinks = menuMobile.querySelectorAll("a");
     menuLinks.forEach(link => {
         link.addEventListener("click", () => {
@@ -149,7 +141,6 @@ if (hamburguer && menuMobile) {
         });
     });
     
-    // Fecha menu ao clicar fora dele
     document.addEventListener("click", function(event) {
         if (!menuMobile.contains(event.target) && !hamburguer.contains(event.target)) {
             hamburguer.classList.remove("ativo");
@@ -159,9 +150,6 @@ if (hamburguer && menuMobile) {
     });
 }
 
-
-
-
 const elementos = document.querySelectorAll('.animar');
 const observer = new IntersectionObserver((entries) => {
 
@@ -170,7 +158,7 @@ entries.forEach(entry => {
 if(entry.isIntersecting){
 entry.target.classList.add('ativo');
 } else {
-entry.target.classList.remove('ativo'); // permite repetir animação
+entry.target.classList.remove('ativo');
 }
 
 });
