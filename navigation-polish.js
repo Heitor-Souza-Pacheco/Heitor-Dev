@@ -37,7 +37,7 @@
 
     updateScrollUI();
 
-    // A navegação por âncoras permanece suave e respeita o scroll-padding da base V2.
+    
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener('click', (event) => {
             const targetId = link.getAttribute('href');
