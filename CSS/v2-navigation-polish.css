@@ -1,5 +1,3 @@
-/* NAVIGATION POLISH — microinterações e progresso de scroll */
-
 .barra-navegacao {
     will-change: transform, background, box-shadow;
 }
