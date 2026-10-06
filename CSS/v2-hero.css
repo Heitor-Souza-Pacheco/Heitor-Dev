@@ -140,25 +140,25 @@
 .botao-inicio span { transition: transform 0.3s ease; }
 .botao-inicio:hover span { transform: translate(3px, -3px); }
 
-.botao-inicio-primary {
+.botao-inicio-principal {
     color: white;
     background: var(--gradient-main);
     border: 1px solid transparent;
     box-shadow: 0 10px 30px rgba(79, 140, 255, 0.15);
 }
 
-.botao-inicio-primary:hover {
+.botao-inicio-principal:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 40px rgba(79, 140, 255, 0.25);
 }
 
-.botao-inicio-secondary {
+.botao-inicio-secundario {
     color: var(--color-text);
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid var(--color-border);
 }
 
-.botao-inicio-secondary:hover {
+.botao-inicio-secundario:hover {
     transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(79, 140, 255, 0.4);
