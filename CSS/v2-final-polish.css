@@ -1,8 +1,3 @@
-/* V2 FINAL POLISH
-   Camada final de acabamento visual.
-   Não controla reveals, tilt, modais ou navegação.
-*/
-
 html {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -26,7 +21,6 @@ textarea {
     color: var(--text-primary, #f5f7fb);
 }
 
-/* Links: feedback consistente sem substituir os hovers específicos. */
 .link-contato,
 .link-projeto,
 .topo-rodape,
@@ -51,7 +45,6 @@ textarea {
     transform: translateY(-2px);
 }
 
-/* Feedback tátil sutil nos botões, sem alterar a animação de entrada. */
 .botao-inicio,
 .botao-enviar-contato,
 .botao-detalhes-experiencia,
@@ -68,7 +61,6 @@ textarea {
     transform: translateY(1px) scale(0.985);
 }
 
-/* Mantém o conteúdo das áreas animadas em sua própria camada de pintura. */
 .brilho-inicio,
 .grade-inicio,
 .projects-v2-card-reveal,
@@ -76,12 +68,10 @@ textarea {
     backface-visibility: hidden;
 }
 
-/* Impede imagens grandes de criarem pequenos saltos durante a decodificação. */
 .midia-projeto {
     contain: paint;
 }
 
-/* Evita transições artificiais quando o usuário prefere movimento reduzido. */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto !important;
@@ -104,7 +94,6 @@ textarea {
     }
 }
 
-/* Touch devices não precisam de efeitos dependentes de hover. */
 @media (hover: none) {
     .link-contato:hover,
     .link-projeto:hover,
