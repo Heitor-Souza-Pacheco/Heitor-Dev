@@ -1,13 +1,13 @@
 /* V2 POLISH: responsividade, acessibilidade e detalhes finais sem alterar reveals ou hovers existentes. */
 
-.hero-tech-stack {
+.tecnologias-inicio {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 22px;
 }
 
-.hero-tech-stack span {
+.tecnologias-inicio span {
     display: inline-flex;
     align-items: center;
     gap: 7px;
@@ -22,20 +22,20 @@
     transition: transform 0.25s var(--ease-premium), color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
 }
 
-.hero-tech-stack span::before {
+.tecnologias-inicio span::before {
     content: "◆";
     color: var(--brand-blue);
     font-size: 0.42rem;
 }
 
-.hero-tech-stack span:hover {
+.tecnologias-inicio span:hover {
     transform: translateY(-2px);
     color: var(--text-primary);
     border-color: var(--border-highlight);
     background: rgba(79, 140, 255, 0.06);
 }
 
-:where(a, button, input, textarea):focus-visible {
+:where(a, button, input, textarea):focus-visivel {
     outline: 2px solid var(--brand-blue);
     outline-offset: 3px;
 }
@@ -57,7 +57,7 @@
     transition: transform 0.2s ease;
 }
 
-.skip-link:focus-visible {
+.skip-link:focus-visivel {
     transform: translateY(0);
 }
 
@@ -74,18 +74,18 @@
 }
 
 @media (max-width: 900px) {
-    .hero-content {
+    .conteudo-inicio {
         width: min(760px, 88%);
         margin-left: auto;
         margin-right: auto;
         padding-top: 70px;
     }
 
-    .hero-title {
+    .titulo-inicio {
         font-size: clamp(3.2rem, 10vw, 5.5rem);
     }
 
-    .hero-tech {
+    .tecnologias-flutuantes {
         opacity: 0.7;
         transform: scale(0.9);
         transform-origin: center right;
@@ -93,61 +93,61 @@
 }
 
 @media (max-width: 700px) {
-    .hero-v2 {
+    .inicio {
         min-height: 100svh;
     }
 
-    .hero-content {
+    .conteudo-inicio {
         width: min(92%, 560px);
         padding-top: 65px;
     }
 
-    .hero-eyebrow {
+    .destaque-inicio {
         margin-top: 2rem;
         font-size: 0.68rem;
     }
 
-    .hero-title {
+    .titulo-inicio {
         font-size: clamp(2.9rem, 13vw, 4.5rem);
     }
 
-    .hero-description {
+    .descricao-inicio {
         font-size: 0.9rem;
     }
 
-    .hero-actions {
+    .acoes-inicio {
         flex-wrap: wrap;
     }
 
-    .hero-tech {
+    .tecnologias-flutuantes {
         display: none;
     }
 
-    .scroll-indicator {
+    .indicador-rolagem {
         bottom: 22px;
     }
 }
 
 @media (max-width: 420px) {
-    .hero-content {
+    .conteudo-inicio {
         padding-top: 55px;
     }
 
-    .hero-title {
+    .titulo-inicio {
         font-size: clamp(2.65rem, 14vw, 3.6rem);
     }
 
-    .hero-button {
+    .botao-inicio {
         width: 100%;
     }
 
-    .hero-tech-stack {
+    .tecnologias-inicio {
         gap: 6px;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .hero-tech-stack span,
+    .tecnologias-inicio span,
     .skip-link {
         transition: none;
     }
