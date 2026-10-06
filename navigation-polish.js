@@ -5,7 +5,7 @@
 
     progress.className = 'progresso-rolagem';
     progressscrollTop.className = 'voltar-topo';
-    scrollTop.href = '#home';
+    scrollTop.href = '#inicio';
     scrollTopscrollTop.innerHTML = '↑';
 
     document.body.append(progress, scrollTop);
