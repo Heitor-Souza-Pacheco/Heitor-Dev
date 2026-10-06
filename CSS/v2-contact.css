@@ -1,4 +1,4 @@
-.contact-v2-section {
+.secao-contato {
     position: relative;
     overflow: hidden;
     padding: 280px 0 170px;
@@ -7,7 +7,7 @@
         radial-gradient(circle at 85% 70%, rgba(79, 140, 255, .05), transparent 30%);
 }
 
-.contact-v2-container {
+.container-contato {
     width: min(1150px, 90%);
     margin: 0 auto;
     display: grid;
@@ -16,18 +16,18 @@
     align-items: center;
 }
 
-.contact-v2-intro,
-.contact-v2-form {
+.introducao-contato,
+.formulario-contato {
     opacity: 0;
     transform: translate3d(0, 55px, 0);
 }
 
-.contact-v2-section.is-visible .contact-v2-intro,
-.contact-v2-section.is-visible .contact-v2-form {
+.secao-contato.visivel .introducao-contato,
+.secao-contato.visivel .formulario-contato {
     animation: contactReveal 900ms cubic-bezier(.22, 1, .36, 1) both;
 }
 
-.contact-v2-section.is-visible .contact-v2-form {
+.secao-contato.visivel .formulario-contato {
     animation-delay: 180ms;
 }
 
@@ -36,7 +36,7 @@
     to { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-.contact-v2-label {
+.rotulo-contato {
     display: inline-block;
     margin-bottom: 20px;
     color: var(--color-primary);
@@ -45,7 +45,7 @@
     letter-spacing: .18em;
 }
 
-.contact-v2-intro h2 {
+.introducao-contato h2 {
     max-width: 540px;
     margin: 0;
     color: var(--color-text);
@@ -55,9 +55,9 @@
     letter-spacing: -.055em;
 }
 
-.contact-v2-intro h2 span { color: var(--color-text-muted); }
+.introducao-contato h2 span { color: var(--color-text-muted); }
 
-.contact-v2-intro > p {
+.introducao-contato > p {
     max-width: 480px;
     margin: 28px 0 0;
     color: var(--color-text-muted);
@@ -65,14 +65,14 @@
     line-height: 1.8;
 }
 
-.contact-v2-links {
+.links-contato {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     margin-top: 32px;
 }
 
-.contact-v2-link {
+.link-contato {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -86,14 +86,14 @@
     transition: transform .25s ease, color .25s ease, border-color .25s ease, background .25s ease;
 }
 
-.contact-v2-link:hover {
+.link-contato:hover {
     transform: translateY(-3px);
     color: var(--color-text);
     border-color: rgba(79, 140, 255, .45);
     background: rgba(79, 140, 255, .05);
 }
 
-.contact-v2-form {
+.formulario-contato {
     position: relative;
     padding: 34px;
     border: 1px solid var(--color-border);
@@ -103,7 +103,7 @@
     overflow: hidden;
 }
 
-.contact-v2-form::before {
+.formulario-contato::before {
     content: "";
     position: absolute;
     inset: 0 0 auto;
@@ -111,16 +111,16 @@
     background: var(--gradient-main);
 }
 
-.contact-v2-form-title {
+.formulario-contato-title {
     margin: 0 0 25px;
     color: var(--color-text);
     font-family: var(--font-display);
     font-size: 1.25rem;
 }
 
-.contact-v2-field { margin-bottom: 16px; }
+.campo-contato { margin-bottom: 16px; }
 
-.contact-v2-field label {
+.campo-contato label {
     display: block;
     margin-bottom: 8px;
     color: var(--color-text-muted);
@@ -129,8 +129,8 @@
     letter-spacing: .08em;
 }
 
-.contact-v2-field input,
-.contact-v2-field textarea {
+.campo-contato input,
+.campo-contato textarea {
     width: 100%;
     box-sizing: border-box;
     padding: 14px 15px;
@@ -143,16 +143,16 @@
     transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
 }
 
-.contact-v2-field textarea { min-height: 135px; resize: vertical; }
+.campo-contato textarea { min-height: 135px; resize: vertical; }
 
-.contact-v2-field input:focus,
-.contact-v2-field textarea:focus {
+.campo-contato input:focus,
+.campo-contato textarea:focus {
     border-color: rgba(79, 140, 255, .65);
     background: rgba(79, 140, 255, .025);
     box-shadow: 0 0 0 3px rgba(79, 140, 255, .07);
 }
 
-.contact-v2-submit {
+.botao-enviar-contato {
     display: inline-flex;
     align-items: center;
     gap: 12px;
@@ -167,16 +167,16 @@
     transition: transform .25s ease, background .25s ease, border-color .25s ease;
 }
 
-.contact-v2-submit:hover {
+.botao-enviar-contato:hover {
     transform: translateY(-3px);
     background: rgba(79, 140, 255, .16);
     border-color: rgba(79, 140, 255, .8);
 }
 
-.contact-v2-submit span { transition: transform .25s ease; }
-.contact-v2-submit:hover span { transform: translate(3px, -3px); }
+.botao-enviar-contato span { transition: transform .25s ease; }
+.botao-enviar-contato:hover span { transform: translate(3px, -3px); }
 
-.contact-v2-status {
+.status-contato {
     min-height: 18px;
     margin: 14px 0 0;
     color: var(--color-primary);
@@ -185,18 +185,18 @@
 }
 
 @media (max-width: 850px) {
-    .contact-v2-container { grid-template-columns: 1fr; gap: 55px; }
-    .contact-v2-intro h2 { max-width: 700px; }
+    .container-contato { grid-template-columns: 1fr; gap: 55px; }
+    .introducao-contato h2 { max-width: 700px; }
 }
 
 @media (max-width: 600px) {
-    .contact-v2-section { padding: 110px 0 120px; }
-    .contact-v2-form { padding: 24px; }
+    .secao-contato { padding: 110px 0 120px; }
+    .formulario-contato { padding: 24px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .contact-v2-intro,
-    .contact-v2-form { opacity: 1; transform: none; }
-    .contact-v2-section.is-visible .contact-v2-intro,
-    .contact-v2-section.is-visible .contact-v2-form { animation: none; }
+    .introducao-contato,
+    .formulario-contato { opacity: 1; transform: none; }
+    .secao-contato.visivel .introducao-contato,
+    .secao-contato.visivel .formulario-contato { animation: none; }
 }
