@@ -5,10 +5,10 @@
 
         section.dataset.experiencia-secaoInitialized = 'true';
 
-        const intro = section.querySelector('.experiencia-secao-intro');
-        const items = [...section.querySelectorAll('.experiencia-secao-item')];
-        const markers = [...section.querySelectorAll('.experiencia-secao-marker')];
-        const detailsButton = section.querySelector('.experiencia-secao-details-button');
+        const intro = section.querySelector('.introducao-experiencia');
+        const items = [...section.querySelectorAll('.item-experiencia')];
+        const markers = [...section.querySelectorAll('.marcador-experiencia')];
+        const detailsButton = section.querySelector('.botao-detalhes-experiencia');
 
         const revealTargets = [
             { element: intro, delay: 0, y: 45 },
