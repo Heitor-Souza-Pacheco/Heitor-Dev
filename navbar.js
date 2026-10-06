@@ -20,7 +20,6 @@ if ("IntersectionObserver" in window) {
                 navLinks.forEach((link) => {
                     const isActive = link.getAttribute("href") === `#${currentSection}`;
                     link.classList.toggle("ativo", isActive);
-                    link.setAttribute("aria-current", isActive ? "page" : "false");
                 });
             });
         },
@@ -38,9 +37,6 @@ if (menuButton && mobileMenu) {
     const setMenuState = (isOpen) => {
         mobileMenu.classList.toggle("aberto", isOpen);
         menuButton.classList.toggle("ativo", isOpen);
-        menuButton.setAttribute("aria-expanded", String(isOpen));
-        menuButton.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
-        mobileMenu.setAttribute("aria-hidden", String(!isOpen));
     };
 
     setMenuState(false);
