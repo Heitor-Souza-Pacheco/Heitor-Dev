@@ -7,6 +7,10 @@ TABLETS
     overflow-x: hidden;
 }
 
+.indicador-rolagem, .seta-rolagem {
+    display: none;
+}
+
 .principal{
     flex-direction: column;
     text-align: center;
@@ -86,6 +90,10 @@ CELULARES
     overflow-x: hidden;
 }
 
+.indicador-rolagem, .seta-rolagem {
+    display: none;
+}
+
 .menu{
     transform: none;
     margin-left: 0;
@@ -155,6 +163,10 @@ CELULARES PEQUENOS
 @media (max-width: 480px){
 * {
     overflow-x: hidden;
+}
+
+.indicador-rolagem, .seta-rolagem {
+    display: none;
 }
 
 .meuNome{
@@ -237,6 +249,10 @@ MENU HAMBURGUER - RESPONSIVO
         width: 250px;
         padding: 90px 20px 30px 20px;
     }
+
+    .indicador-rolagem, .seta-rolagem {
+    display: none;
+}
     
     .menu-mobile a {
         font-size: 20px;
