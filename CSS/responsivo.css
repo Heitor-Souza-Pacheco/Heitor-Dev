@@ -1,6 +1,4 @@
-/* =======================
-TABLETS
-======================= */
+
 
 @media (max-width: 1024px){
 * {
@@ -81,9 +79,7 @@ TABLETS
 
 }
 
-/* =======================
-CELULARES
-======================= */
+
 
 @media (max-width: 768px){
 * {
@@ -156,9 +152,7 @@ nav{
 
 }
 
-/* =======================
-CELULARES PEQUENOS
-======================= */
+
 
 @media (max-width: 480px){
 * {
@@ -191,17 +185,15 @@ CELULARES PEQUENOS
 
 }
 
-/* ==========================
-MENU HAMBURGUER - RESPONSIVO
-========================== */
+
 
 @media (max-width: 768px) {
-    /* Mostra o hamburguer */
+    
     .menu-hamburguer {
         display: flex !important;
     }
     
-    /* Esconde menu desktop */
+    
     .selecaoMenu {
         display: none !important;
     }
@@ -210,7 +202,7 @@ MENU HAMBURGUER - RESPONSIVO
         display: none !important;
     }
     
-    /* Ajuste no header */
+    
     .menu {
         padding: 0;
         margin: 0;
@@ -221,12 +213,12 @@ MENU HAMBURGUER - RESPONSIVO
         padding: 0;
     }
     
-    /* Esconde o nome Heitor no mobile */
+    
     .linkHome {
         display: none;
     }
     
-    /* Overlay escuro quando menu aberto (opcional) */
+    
     .menu-overlay {
         display: none;
         position: fixed;
@@ -243,7 +235,7 @@ MENU HAMBURGUER - RESPONSIVO
     }
 }
 
-/* Para celulares muito pequenos */
+
 @media (max-width: 480px) {
     .menu-mobile {
         width: 250px;
@@ -268,16 +260,14 @@ MENU HAMBURGUER - RESPONSIVO
     }
 }
 
-/* =======================
-CONTATO - CORREÇÃO COMPLETA
-======================= */
+
 
 @media (max-width: 1024px) {
     .contatoSection {
         flex-direction: column;
         gap: 3rem;
         padding: 2rem;
-        min-height: auto; /* remove altura mínima excessiva */
+        min-height: auto; 
     }
     
     .info {
@@ -290,7 +280,7 @@ CONTATO - CORREÇÃO COMPLETA
     .inputContato {
         width: 100%;
         max-width: 500px;
-        margin: 0 auto; /* centraliza */
+        margin: 0 auto; 
     }
 }
 
@@ -319,14 +309,14 @@ CONTATO - CORREÇÃO COMPLETA
     .email, .telefone {
         width: 100%;
         justify-content: center;
-        flex-wrap: wrap; /* quebra em telas muito pequenas */
+        flex-wrap: wrap; 
         gap: 1rem;
         text-align: center;
     }
     
     .email p, .telefone p {
         font-size: 16px;
-        word-break: break-word; /* evita que texto longo vaze */
+        word-break: break-word; 
     }
     
     .ico {
