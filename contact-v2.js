@@ -4,15 +4,15 @@
 
     section.dataset.contactV2Initialized = 'true';
 
-    const intro = section.querySelector('.contact-v2-intro');
-    const form = section.querySelector('.contact-v2-form');
+    const intro = section.querySelector('.contato-v2-intro');
+    const form = section.querySelector('.contato-v2-form');
 
     if (!('IntersectionObserver' in window)) {
-        section.classList.add('is-visible');
+        section.classList.add('is-visivel');
     } else {
         const observer = new IntersectionObserver((entries, observerRef) => {
             if (!entries.some(entry => entry.isIntersecting)) return;
-            section.classList.add('is-visible');
+            section.classList.add('is-visivel');
             observerRef.disconnect();
         }, { threshold: 0.12, rootMargin: '0px 0px -10% 0px' });
 
@@ -20,7 +20,7 @@
     }
 
     const formElement = section.querySelector('form');
-    const status = section.querySelector('.contact-v2-status');
+    const status = section.querySelector('.contato-v2-status');
 
     formElement?.addEventListener('submit', (event) => {
         event.preventDefault();
